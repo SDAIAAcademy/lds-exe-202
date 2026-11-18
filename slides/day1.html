@@ -1,158 +1,487 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">REPLACE: الترحيب، والتعريف بنفسك، وسؤال للقاعة يضبط الإيقاع، وإيقاع اليوم</aside>
+  <aside class="notes"><p>رحّب بالقاعة، وعرّف بنفسك في جملة. ثم اسأل: من في القاعة يعرف كم كلف آخر طلب أرسله إلى مساعد ذكاء اصطناعي في جهته؟ ومن يعرف كم كلفت المهمة التي أنجزها؟ الفرق بين السؤالين هو موضوع اليومين.</p><p>اليوم الأول ثلاث جلسات: سجل تشغيل واحد، ثم 50 تشغيلًا، ثم ثلاث قوائم أسعار. كل مختبر في جدول بيانات، ولا كود.</p></aside>
 </section>
 
-<section class="slide" id="agenda" data-auto="agenda"></section>
+<section class="slide" id="agenda" data-auto="agenda">
+  <aside class="notes"><p>الخيط: من الفاتورة إلى تكلفة الوحدة. كل جلسة تنتهي بنقطة تحقق ثم مختبر، والأرقام التي تخرج من المختبرات تعود في اليوم الثاني وفي المشروع الختامي.</p></aside>
+</section>
+
+<section class="slide" id="setup-check" data-label="التجهيز">
+  <div class="kicker">قبل أن نبدأ</div>
+  <h2>جدول بيانات مفتوح، وملف واحد يُقرأ بالعربية</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>جدول بيانات:</b> <span class="en">LibreOffice Calc</span> أو <span class="en">Microsoft Excel</span></li>
+      <li><b>صفحة المقرر:</b> المختبرات وملفاتها من صفحة كل مختبر</li>
+      <li><b>متصفح:</b> لمختبر اليوم الثاني</li>
+      <li>لا حساب ولا مفتاح ولا تثبيت</li>
+    </ul>
+    <div class="card c-teal"><h4>الاختبار: دقيقة واحدة</h4><p class="small mb0">نزّل <code>runs_50.csv</code> من صفحة المختبر 1.2 وافتحه. إن ظهر عمود <code>dataset</code> بالعربية سليمًا، فالجهاز جاهز.</p></div>
+  </div>
+  <div class="callout note mt"><b>إن ظهرت رموز غريبة.</b> افتح الملف من داخل البرنامج واختر الترميز <span class="en">UTF-8</span>.</div>
+  <aside class="notes"><p>الملفات محفوظة بترميز UTF-8 مع علامة في أولها يقرؤها Excel. إن ظهرت رموز غير مقروءة في LibreOffice، فالحل نافذة الاستيراد: Character set ثم UTF-8، والفاصل الفاصلة.</p><p>من لا يملك جدول بيانات على جهازه يستطيع استعمال نسخة الويب من Excel بحساب جهته، أو LibreOffice المحمولة.</p></aside>
+</section>
 
 <!-- الجلسة 1 -->
 
 <section class="slide section" id="s1" data-auto="section" data-session="1"></section>
 
-<section class="slide" id="s1-idea">
-  <div class="kicker">REPLACE: السؤال الذي تجيب عنه الشريحة</div>
-  <h2>REPLACE: فكرة واحدة في جملة</h2>
+<section class="slide" id="case-intro" data-lo="LO1">
+  <div class="kicker">دراسة الحالة</div>
+  <h2>«واصِف» يُعدّ حزم النشر لمكتب البيانات المفتوحة في هيئة تطوير مدينة الأقحوان</h2>
   <div class="cols cols-2">
     <ul class="bullets">
-      <li>REPLACE: ست نقاط على الأكثر، كل منها فكرة تامة</li>
-      <li>REPLACE: أبرز العبارة الأساسية، والأرقام من تشغيل المختبر لا من الذاكرة</li>
+      <li>مالك البيانات يطلب نشر مجموعة بيانات صُنفت «عامة»</li>
+      <li>«واصِف» يكتب الوصف بالعربية والإنجليزية والبيانات الوصفية، ويتحقق منها بأداة</li>
+      <li>أمينة البيانات هتون الشدي أو أحد فريقها يقبل الحزمة أو يرفضها</li>
+      <li>عبير السحيمي تملك المسار، وبسام القرني يملك بند الموازنة</li>
     </ul>
-    <div class="card c-teal"><h4>في دراسة الحالة</h4><p class="small mb0">REPLACE: اربط الفكرة بدراسة الحالة وبياناتها</p></div>
+    <div class="card tint c-navy"><h4>دورك</h4><p class="small mb0">محلل التكلفة في مكتب الاستراتيجية والمالية. نائبة المحافظ د. وجدان الجديد تسأل: كم يكلفنا «واصِف» فعلًا، وماذا لو تضاعف الحجم؟</p></div>
   </div>
-  <div class="callout warn mt"><b>أين يقع الخطأ.</b> REPLACE: الخطأ الذي سيقع فيه المشاركون، وكيف يتعرفون عليه</div>
-  <aside class="notes">REPLACE: ما تقوله، والعرض الحي، والسؤال للقاعة، والخطأ الشائع وحلّه</aside>
+  <div class="callout warn mt"><b>«واصِف» في المختبرات ليس نموذجًا.</b> برنامج مكتوب السلوك يقلّد حلقة الوكيل، ليحسب الجميع على الأرقام نفسها.</div>
+  <aside class="notes"><p>الهيئة والمدينة والأشخاص افتراضيون. اشرح لماذا لا نستدعي نموذجًا حقيقيًّا: لكي تتطابق أرقام القاعة كلها، ولكي يكون لكل مختبر حل مرجعي. طريقة الحساب نفسها تصلح لأي نموذج.</p><p>كل ما يدخل «واصِف» مصنف «عام»، وسنعود إلى ذلك في الجلسة الخامسة.</p></aside>
 </section>
 
-<section class="slide" id="s1-steps">
-  <div class="kicker">خطوة بخطوة</div>
-  <h2>REPLACE: عملية تظهر خطوة مع كل ضغطة</h2>
+<section class="slide" id="recap-agent" data-lo="LO1">
+  <div class="kicker">من <span class="en">LDS-EXE-101</span></div>
+  <h2>الوكيل حلقة: يخطط، ويستدعي أداة، ويقرأ النتيجة، ثم يقرر الخطوة التالية</h2>
   <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: الاسم</b>REPLACE: ما يحدث أولًا</div>
-    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: الاسم</b>REPLACE: الجزء التالي</div>
-    <div class="arrow frag" data-frag="c">←</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: الاسم</b>REPLACE: النتيجة</div>
+    <div class="step c-teal"><b>خطة</b>ماذا أفعل أولًا</div>
+    <div class="arrow">←</div>
+    <div class="step c-cyan"><b>أداة</b>اقرأ، ابحث، احسب</div>
+    <div class="arrow">←</div>
+    <div class="step c-purple"><b>نتيجة</b>تُضاف إلى السياق</div>
+    <div class="arrow">←</div>
+    <div class="step c-amber"><b>تحقق</b>نجح، أم أعد المحاولة</div>
   </div>
-  <div class="callout tip mt frag"><b>الخلاصة.</b> REPLACE: الجملة التي تبقى في الذاكرة</div>
-  <aside class="notes">اضغط مرة لكل خطوة، وقل ما تضيفه كل خطوة قبل ظهور التالية. REPLACE: المثال الذي تشرحه</aside>
+  <p class="lead mt">رأيتم في الإحاطة أين يخطئ الوكيل. اليوم نسأل سؤالًا آخر: كم تكلف كل دورة من هذه الحلقة، ومن يدفعها؟</p>
+  <aside class="notes"><p>شريحة تذكير فقط. من لم يحضر LDS-EXE-101 يكفيه أن يفهم أن الوكيل لا يجيب مرة واحدة: يدور حتى ينهي المهمة أو يتوقف.</p></aside>
+</section>
+
+<section class="slide" id="four-token-types" data-lo="LO1">
+  <div class="kicker">ما تحسبه الفاتورة</div>
+  <h2>الفاتورة تعدّ أربعة أنواع من الوحدات النصية، ولكل نوع سعر</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>مدخلات</h4><p class="small mb0">كل ما يُرسل إلى النموذج في الاستدعاء: التعليمات والطلب والسياق.</p></div>
+    <div class="card c-cyan"><h4>مدخلات مخزنة</h4><p class="small mb0">بادئة أُرسلت قبل قليل فيقرؤها المزوّد من ذاكرته بسعر أقل بكثير.</p></div>
+    <div class="card c-coral"><h4>مخرجات</h4><p class="small mb0">ما يكتبه النموذج. سعرها أضعاف سعر المدخلات.</p></div>
+    <div class="card c-purple"><h4>استدلال</h4><p class="small mb0">ما «يفكر» به النموذج قبل الرد. لا يظهر، ويُفوتَر مخرجات.</p></div>
+  </div>
+  <div class="callout note mt"><b>من وثائق المزوّدين.</b> تقول <span class="en">OpenAI</span> إن وحدات الاستدلال لا تظهر عبر الواجهة البرمجية، وتشغل سياق النموذج، وتُفوتَر مخرجات.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">OpenAI API, Reasoning models guide</span>، قُرئ في نوفمبر 2026.</p>
+  <aside class="notes"><p>العدد في الرد: حقل usage في استجابة الواجهة البرمجية يذكر عدد وحدات الاستدلال (output_tokens_details.reasoning_tokens عند OpenAI). أدوات تتبع التنفيذ مثل Langfuse تسجل الأنواع كلها لكل استدعاء.</p><p>المصادر: OpenAI, Reasoning models؛ Langfuse, Token and cost tracking.</p></aside>
+</section>
+
+<section class="slide" id="resent-every-call" data-lo="LO1">
+  <div class="kicker">ما يُعاد إرساله</div>
+  <h2>في كل استدعاء يُرسل السياق كله من جديد، لا الجديد وحده</h2>
+  <table class="t">
+    <tr><th>المقطع</th><th>متى يدخل</th><th>هل يتكرر؟</th></tr>
+    <tr><td>تعليمات النظام وتعريفات الأدوات</td><td>من الاستدعاء الأول</td><td>في كل استدعاء</td></tr>
+    <tr><td>طلب المستخدم</td><td>من الاستدعاء الأول</td><td>في كل استدعاء</td></tr>
+    <tr><td>نتائج الأدوات والنصوص المسترجعة</td><td>بعد أول استدعاء لأداة</td><td>في كل ما بعده</td></tr>
+    <tr><td>مخرجات الاستدعاءات السابقة</td><td>بعد كل استدعاء</td><td>تتراكم</td></tr>
+  </table>
+  <div class="callout tip mt"><b>حتى تعريف الأداة له ثمن.</b> تذكر <span class="en">Anthropic</span> أن وجود أداة واحدة يضيف تعليمات نظام خاصة: 286 وحدة لنموذجي <span class="en">Opus 5.5</span> و<span class="en">Sonnet 5.5</span>.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">Anthropic, Pricing</span>، قسم تسعير استخدام الأدوات، قُرئ في نوفمبر 2026.</p>
+  <aside class="notes"><p>النموذج لا يتذكر شيئًا بين استدعاء وآخر: الحلقة تبني الذاكرة بإعادة إرسال كل شيء. لهذا يكبر الاستدعاء العاشر عن الأول.</p><p>الرقم 286 لحالتي tool_choice «auto» و«none»؛ وتضاف إليه تعريفات الأدوات نفسها. المصدر: Anthropic, Pricing.</p></aside>
+</section>
+
+<section class="slide" id="history-grows" data-lo="LO1">
+  <div class="kicker">مثال من إدارة الاتصال</div>
+  <h2>في مسار الإعلانات يكبر الاستدعاء من 2,992 وحدة إلى 18,367</h2>
+  <div class="bars">
+    <div class="row"><span>1 · خطة</span><div class="bar c-teal" style="--w:16%"></div><span class="val">2,992</span></div>
+    <div class="row"><span>2 · طلب أداة</span><div class="bar c-teal" style="--w:18%"></div><span class="val">3,267</span></div>
+    <div class="row"><span>3 · طلب استرجاع</span><div class="bar c-teal" style="--w:34%"></div><span class="val">6,212</span></div>
+    <div class="row"><span>4 · مسودة عربية</span><div class="bar c-cyan" style="--w:63%"></div><span class="val">11,490</span></div>
+    <div class="row"><span>5 · مسودة إنجليزية</span><div class="bar c-cyan" style="--w:74%"></div><span class="val">13,610</span></div>
+    <div class="row"><span>6 · طلب تحقق</span><div class="bar c-cyan" style="--w:83%"></div><span class="val">15,244</span></div>
+    <div class="row"><span>7 · مراجعة</span><div class="bar c-coral" style="--w:87%"></div><span class="val">15,901</span></div>
+    <div class="row"><span>8 · طلب تحقق</span><div class="bar c-coral" style="--w:98%"></div><span class="val">18,058</span></div>
+    <div class="row"><span>9 · تجميع</span><div class="bar c-purple" style="--w:100%"></div><span class="val">18,367</span></div>
+  </div>
+  <p class="caption">وحدات المدخلات في كل استدعاء من تشغيل واحد لمسار الإعلانات الثنائية اللغة. الأحمر استدعاءا إعادة المحاولة.</p>
+  <aside class="notes"><p>هذا مسار آخر في الهيئة نفسها: إدارة الاتصال تستخدم الحلقة نفسها لكتابة إعلانات عامة بالعربية والإنجليزية، بأسعار وأرقام مختلفة عن «واصِف». المثال من المولّد الاصطناعي للمقرر، لا من نموذج حقيقي.</p><p>اسأل: أين القفزة الأكبر؟ بين 3 و4: النص المسترجع دخل السياق ولن يخرج.</p></aside>
+</section>
+
+<section class="slide" id="billed-vs-asked" data-lo="LO1">
+  <div class="kicker">المفوتَر مقابل المسؤول</div>
+  <h2>طلب من 392 وحدة صار فاتورة من 118,759 وحدة</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">392</div><div class="lbl">وحدة: طلب مالك الإعلان مرة واحدة</div></div>
+    <div class="stat center"><div class="big">118,759</div><div class="lbl">وحدة مفوترة في الاستدعاءات التسعة</div></div>
+    <div class="stat center"><div class="big">303</div><div class="lbl">ضعفًا: المفوتَر إلى طول الطلب</div></div>
+  </div>
+  <div class="callout warn mt"><b>والتقدير الساذج أقل بنحو 48 مرة.</b> سعر الطلب والجواب الأخير وحدهما 0.03 ريال، والتشغيل كلف 1.60 ريال بأسعار هذا المثال.</div>
+  <aside class="notes"><p>الأسعار في هذا المثال: 10 ريالات لكل مليون وحدة مدخلات، و40 للمخرجات. التقدير الساذج: 392 وحدة مدخلات و728 وحدة مخرجات للجواب الأخير. الحساب في ملف المقرر للأرقام.</p><p>لا تكشف أرقام «واصِف»: المختبر سيجدها.</p></aside>
+</section>
+
+<section class="slide" id="retries-multiply" data-lo="LO1">
+  <div class="kicker">إعادة المحاولة</div>
+  <h2>كل محاولة فاشلة تُدفع كاملة، مع السياق كله الذي حملته</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>المسودة لم تجتز التحقق: يعود الوكيل ومعه رسالة الخطأ والسياق كله</li>
+      <li>الاستدعاءات المتأخرة هي الأكبر، فالإعادة تأتي في أغلى نقطة</li>
+      <li>حلقة لا تجتاز التحقق أبدًا تستمر حتى حدٍّ يوقفها، أو لا تتوقف</li>
+    </ul>
+    <div class="stat center"><div class="big">32%</div><div class="lbl">من وحدات تشغيل الإعلانات ذهب إلى استدعاءي إعادة المحاولة</div></div>
+  </div>
+  <div class="callout tip mt"><b>اسأل الفريق.</b> ما الحد الأقصى لإعادة المحاولة؟ ومن يعرف حين يُبلَغ؟</div>
+  <aside class="notes"><p>الرقم: 38,231 وحدة من 118,759 في الاستدعاءين 7 و8 من مثال الإعلانات.</p><p>اربطها بالجلسة الثانية: التشغيل الذي يبلغ الحد ينتهي بلا نتيجة، وتكلفته لا تختفي.</p></aside>
+</section>
+
+<section class="slide" id="prices-fall-spend-rises" data-lo="LO1">
+  <div class="kicker">مفارقة الإنفاق</div>
+  <h2>سعر الوحدة ينخفض بسرعة، والوكلاء يستهلكون وحدات أكثر بكثير</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>السعر لأداء ثابت</h4><p class="small mb0">سعر بلوغ مستوى أداء معين انخفض بين 9 أضعاف و900 ضعف في السنة، بحسب المستوى، وفق <span class="en">Epoch AI</span> (مارس 2025).</p></div>
+    <div class="card c-coral"><h4>الاستهلاك لكل مهمة</h4><p class="small mb0">تقول <span class="en">Anthropic</span> إن الوكلاء يستهلكون عادة نحو 4 أضعاف وحدات المحادثة، والأنظمة متعددة الوكلاء نحو 15 ضعفًا.</p></div>
+  </div>
+  <div class="callout warn mt"><b>النتيجة في الموازنة.</b> سعر أقل لكل وحدة لا يعني فاتورة أقل: الحجم والحلقات قد يرفعان الإنفاق أسرع مما ينخفض السعر.</div>
+  <p class="xsmall muted mt">المصادر: <span class="en">Epoch AI, LLM inference prices have fallen rapidly but unequally across tasks (2025)</span>؛ <span class="en">Anthropic Engineering, How we built our multi-agent research system (2025)</span>.</p>
+  <aside class="notes"><p>الرقمان من مصدرين مختلفين ولا يُطرح أحدهما من الآخر. الأول عن السعر لمستوى أداء ثابت، والثاني عن عدد الوحدات في نوع من الاستخدام. الرسالة: لا تبنِ موازنة على افتراض أن الأسعار ستنخفض.</p><p>المصادر: Epoch AI؛ Anthropic Engineering.</p></aside>
+</section>
+
+<section class="slide" id="energy" data-lo="LO1">
+  <div class="kicker">الطاقة</div>
+  <h2>كل وحدة نصية تُعالَج في مركز بيانات يستهلك كهرباء</h2>
+  <div class="cols cols-2">
+    <div class="stat center"><div class="big">415</div><div class="lbl">تيراواط ساعة: استهلاك مراكز البيانات في العالم عام 2024، نحو 1.5% من الكهرباء</div></div>
+    <div class="stat center"><div class="big">945</div><div class="lbl">تيراواط ساعة تقريبًا: المتوقع عام 2030</div></div>
+  </div>
+  <div class="callout note mt"><b>في تقريرك.</b> الحلقات وإعادة المحاولة والسياق الطويل تستهلك طاقة كما تستهلك مالًا. والتشغيل الفاشل يُبلَّغ عنه، لا يُحذف من الأرقام.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">IEA, Energy and AI (2025), Executive summary</span>.</p>
+  <aside class="notes"><p>الرقمان لمراكز البيانات كلها، لا للذكاء الاصطناعي وحده. لا تحوّل الوحدات النصية إلى كيلوواط ساعة على الشريحة: لا يوجد معامل منشور موثوق لكل مزوّد.</p><p>المصدر: IEA, Energy and AI, Executive summary.</p></aside>
+</section>
+
+<section class="slide" id="check-billed-tokens" data-lo="LO1">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>من أين جاء الفرق؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO1">
+    <p class="lead">في مسار الإعلانات، طلب مالك الإعلان 392 وحدة، والسجل يُظهر تسعة استدعاءات بمجموع 118,759 وحدة مفوترة. أي تفسير صحيح؟</p>
+    <div class="opts">
+      <div class="opt" data-ok>كل استدعاء يعيد إرسال التعليمات والطلب وما قرأه الوكيل وكتبه</div>
+      <div class="opt" data-why="الفرق بين اللغتين في عدّ الوحدات قائم، لكنه لا يقترب من 303 أضعاف">المزوّد يعدّ وحدات النص العربي أضعافًا مضاعفة مقارنة بالنص الإنجليزي</div>
+      <div class="opt" data-why="وحدات الاستدلال في هذا التشغيل 6,235 من 118,759، أي نحو 5%">وحدات الاستدلال المخفية هي معظم ما فُوتر في التشغيل كله</div>
+      <div class="opt" data-why="الفاتورة بالوحدات النصية، ولا رسم ثابت على الاستدعاء في هذا التسعير">الطلب أُرسل مرة واحدة، والباقي رسوم ثابتة على كل استدعاء</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> النموذج لا يتذكر بين استدعاء وآخر، فتبني الحلقة ذاكرتها بإعادة إرسال السياق كله، ويتراكم فيه ما قرأه الوكيل وما كتبه.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: أ. من اختار الاستدلال يحتاج العودة إلى شريحة الأنواع الأربعة: الاستدلال يُفوتَر مخرجات، لكنه ليس الأكبر هنا. أرقامه من مثال الإعلانات، لا من «واصِف».</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-1" data-auto="lab" data-lab="1.1">
-  <aside class="notes">REPLACE: ما تراقبه أثناء عمل المشاركين، والمشكلات المعتادة، والبديل لمن لم يُنهِ مختبرًا سابقًا</aside>
+  <aside class="notes"><p>بعد عشر دقائق مرّ على الطاولات وانظر إلى عمود category: الخطأ الأشيع خلط نتائج الأدوات بالاسترجاع. القاعدة: ما أعادته أداة الفحص أو التحقق «tool»، وما جاء من المعيار المنشور «retrieval».</p><p>الذكاء الاصطناعي مرشد في المعادلات: يسأل المشارك عن معادلة، ويكتب الأرقام من جدوله. لا تعطِ القاعة أي مجموع قبل نهاية المختبر.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-1" data-label="بعد المختبر 1.1" data-lo="LO1">
+  <div class="kicker">بعد المختبر 1.1</div>
+  <h2>طلب من 204 وحدات فُوتر 1,786 ضعفًا، ونصف الفاتورة إعادة محاولة</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">364,364</div><div class="lbl">وحدة في التشغيل R028، منها 72.6% نتائج أدوات ونصوص مسترجعة</div></div>
+    <div class="stat center"><div class="big">47.4%</div><div class="lbl">من الوحدات في استدعاءات إعادة المحاولة الأربعة</div></div>
+    <div class="stat center"><div class="big">6.47</div><div class="lbl">ريال تكلفة الوحدات، والتقدير الساذج 0.06</div></div>
+  </div>
+  <div class="callout warn mt"><b>ومع 4.5 دقائق مراجعة يصبح التشغيل 19.97 ريالًا.</b> الوحدات أقل من ثلث تكلفته.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_1_tokens.md. اطلب من مشاركين قراءة جملهم الثلاث للقيادة، واختر واحدة لا تذكر «السعر لكل وحدة» إلا لتقول إنه لا يكفي.</p><p>الجسر إلى الجلسة الثانية: هذا تشغيل واحد ناجح. ماذا عن التشغيلات التي فشلت؟</p></aside>
 </section>
 
 <!-- الجلسة 2 -->
 
 <section class="slide section" id="s2" data-auto="section" data-session="2"></section>
 
-<section class="slide" id="s2-idea">
-  <div class="kicker">REPLACE: السؤال الذي تجيب عنه الشريحة</div>
-  <h2>REPLACE: فكرة واحدة في جملة</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: ست نقاط على الأكثر، كل منها فكرة تامة</li>
-      <li>REPLACE: أبرز العبارة الأساسية، والأرقام من تشغيل المختبر لا من الذاكرة</li>
-    </ul>
-    <div class="card c-teal"><h4>في دراسة الحالة</h4><p class="small mb0">REPLACE: اربط الفكرة بدراسة الحالة وبياناتها</p></div>
-  </div>
-  <div class="callout warn mt"><b>أين يقع الخطأ.</b> REPLACE: الخطأ الذي سيقع فيه المشاركون، وكيف يتعرفون عليه</div>
-  <aside class="notes">REPLACE: ما تقوله، والعرض الحي، والسؤال للقاعة، والخطأ الشائع وحلّه</aside>
+<section class="slide" id="run-task-success" data-lo="LO2">
+  <div class="kicker">التعريفات أولًا</div>
+  <h2>قبل أي رقم: ما التشغيل، وما المهمة، وما النجاح</h2>
+  <table class="t">
+    <tr><th>الكلمة</th><th>تعريفها في هذا المقرر</th></tr>
+    <tr><td>تشغيل</td><td>تنفيذ واحد للوكيل على طلب واحد: مقبول، أو مرفوض، أو فاشل بلا نتيجة</td></tr>
+    <tr><td>مهمة</td><td>الطلب نفسه؛ التشغيل الفاشل يُعاد مرة، فللمهمة تشغيل أو اثنان</td></tr>
+    <tr><td>نجاح</td><td>قبِل المراجع البشري الناتج، لا «انتهى التشغيل»</td></tr>
+    <tr><td>تكلفة التشغيل</td><td>الوحدات النصية بسعرها، ودقائق المراجعة بأجرها</td></tr>
+  </table>
+  <div class="callout tip mt"><b>اكتب التعريفات في أعلى التقرير.</b> رقمان من فريقين بتعريفين للنجاح لا يُقارنان.</div>
+  <aside class="notes"><p>اسأل القاعة: في جهاتكم، من يقرر أن المهمة نجحت؟ النظام نفسه، أم الشخص الذي يستلم الناتج؟ هذا المقرر يعتمد الثاني.</p></aside>
 </section>
 
-<section class="slide" id="s2-steps">
-  <div class="kicker">خطوة بخطوة</div>
-  <h2>REPLACE: عملية تظهر خطوة مع كل ضغطة</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: الاسم</b>REPLACE: ما يحدث أولًا</div>
-    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: الاسم</b>REPLACE: الجزء التالي</div>
-    <div class="arrow frag" data-frag="c">←</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: الاسم</b>REPLACE: النتيجة</div>
+<section class="slide" id="failed-runs-paid" data-lo="LO2">
+  <div class="kicker">التشغيل الفاشل</div>
+  <h2>التشغيل الذي انتهى بلا نتيجة دُفعت وحداته كلها</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>خطأ أداة</h4><p class="small mb0">توقف مبكرًا: وحداته قليلة، لكنه يُعاد من أوله.</p></div>
+    <div class="card c-amber"><h4>بلوغ حد إعادة المحاولة</h4><p class="small mb0">توقف متأخرًا: أغلى تشغيل في السجل، وبلا نتيجة.</p></div>
+    <div class="card c-purple"><h4>ناتج مرفوض</h4><p class="small mb0">دُفعت وحداته ووقت مراجعته، ولم تنجح المهمة.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>الخلاصة.</b> REPLACE: الجملة التي تبقى في الذاكرة</div>
-  <aside class="notes">اضغط مرة لكل خطوة، وقل ما تضيفه كل خطوة قبل ظهور التالية. REPLACE: المثال الذي تشرحه</aside>
+  <div class="callout warn mt"><b>حذف هذه الأسطر من الملف يجمّل الرقم.</b> الإبلاغ الأمين يعدّها في التكلفة ويذكر عددها.</div>
+  <aside class="notes"><p>هذا من بنود الاستخدام المسؤول في المقرر: الإبلاغ الأمين عن التشغيلات الفاشلة. اسأل: من رأى تقريرًا عن أداة ذكاء اصطناعي يذكر عدد التشغيلات التي فشلت؟</p></aside>
+</section>
+
+<section class="slide" id="review-is-cost" data-lo="LO2">
+  <div class="kicker">المراجعة البشرية</div>
+  <h2>دقائق المراجعة غالبًا أكبر بند في تكلفة المهمة</h2>
+  <div class="cols cols-2">
+    <div class="stat center"><div class="big">89%</div><div class="lbl">من تكلفة 41 تشغيلًا لمسار الإعلانات كانت وقت مراجعة</div></div>
+    <ul class="bullets">
+      <li>191.5 دقيقة مراجعة بأجر 2.5 ريال للدقيقة</li>
+      <li>في مقابل 61.14 ريالًا للوحدات النصية كلها</li>
+      <li>الأجر المحمَّل: الراتب والبدلات والتكاليف غير المباشرة، لا الراتب وحده</li>
+    </ul>
+  </div>
+  <div class="callout warn mt"><b>من هنا يأتي الإغراء.</b> حذف المراجعة يبدو أكبر توفير، وهو تغيير في الجودة لا توفير.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات: المجموع 539.89 ريالًا، والمراجعة 478.75. أجر الدقيقة افتراض المقرر لهذا المثال.</p><p>هذا هو خطر أن يؤدي ضغط التكلفة إلى إلغاء المراجعة البشرية: سنعود إليه في الروافع.</p></aside>
+</section>
+
+<section class="slide" id="median-and-tail" data-lo="LO2">
+  <div class="kicker">التوزيع</div>
+  <h2>المهمة المعتادة والمهمة السيئة رقمان مختلفان</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">12.83</div><div class="lbl">ريالًا: الوسيط، نصف المهام الناجحة أقل منه</div></div>
+    <div class="stat center"><div class="big">15.50</div><div class="lbl">ريالًا: المئين التسعون، عُشر المهام أعلى منه</div></div>
+    <div class="stat center"><div class="big">29 / 36</div><div class="lbl">مهمة ناجحة: 80.6%</div></div>
+  </div>
+  <div class="callout tip mt"><b>الطرف تصنعه الحلقات.</b> مهمة فشل تشغيلها الأول بعد مراجعات كثيرة ثم نجحت تحمل التشغيلين.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات. الوسيط بالدالة MEDIAN والمئين التسعون بالدالة PERCENTILE.INC، على تكلفة المهام الناجحة وحدها.</p></aside>
+</section>
+
+<section class="slide" id="loaded-mean" data-lo="LO2">
+  <div class="kicker">رقم الموازنة</div>
+  <h2>المتوسط المحمَّل يضع كل ما دُفع على المهام التي نجحت</h2>
+  <table class="t">
+    <tr><th>الرقم</th><th class="num">ريال</th><th>ما يحسبه</th></tr>
+    <tr><td>متوسط الناجحة وحدها</td><td class="num">12.46</td><td>يسقط المهام المرفوضة والفاشلة</td></tr>
+    <tr><td>متوسط التشغيل</td><td class="num">13.17</td><td>539.89 ÷ 41 تشغيلًا</td></tr>
+    <tr class="hl"><td>المتوسط المحمَّل</td><td class="num">18.62</td><td>539.89 ÷ 29 مهمة ناجحة</td></tr>
+  </table>
+  <div class="callout warn mt"><b>قد يقع المتوسط المحمَّل فوق المئين التسعين.</b> يحدث ذلك حين تكون المهام التي لم تنجح كثيرة ومكلفة.</div>
+  <aside class="notes"><p>اسأل: أي رقم تضعه في طلب الموازنة؟ المحمَّل: هو ما تدفعه الجهة مقابل كل نجاح. الوسيط والمئين التسعون يصفان التجربة، ونسبة النجاح تكتب بجانبها دائمًا.</p></aside>
+</section>
+
+<section class="slide" id="formulas" data-lo="LO2">
+  <div class="kicker">المعادلات</div>
+  <h2>ثلاث معادلات تكفي، بشرط أن تُكتب كما هي في التقرير</h2>
+  <pre class="code" data-file="cost.ods"><code>=MEDIAN(D2:D37)
+=PERCENTILE.INC(D2:D37;0.9)
+=SUM(runs!T2:T42)/SUM(C2:C37)</code></pre>
+  <ul class="bullets mt">
+    <li><code>D</code> تكلفة المهام الناجحة، فارغة لغيرها؛ <code>C</code> علامة النجاح؛ <code>T</code> تكلفة كل تشغيل</li>
+    <li><code>PERCENTILE.INC</code> و<code>PERCENTILE.EXC</code> تعطيان رقمين مختلفين: اكتب أيهما استعملت</li>
+  </ul>
+  <aside class="notes"><p>النطاقات هنا لمثال الإعلانات (36 مهمة و41 تشغيلًا). في Excel بإعدادات إنجليزية الفاصل بين المعاملات فاصلة، وفي LibreOffice قد يكون فاصلة منقوطة.</p><p>الذكاء الاصطناعي مرشد في المعادلات: يجوز أن يسأل المشارك مساعدًا عن صيغة، ويبقى مسؤولًا عن أن الرقم من جدوله.</p></aside>
+</section>
+
+<section class="slide" id="hidden-costs" data-lo="LO2">
+  <div class="kicker">التكاليف الخفية</div>
+  <h2>الفاتورة من المزوّد جزء من التكلفة، لا كلها</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>المراجعة</h4><p class="small mb0">دقائق الموظف الذي يقبل الناتج أو يرفضه.</p></div>
+    <div class="card c-cyan"><h4>التكامل</h4><p class="small mb0">ربط الوكيل بأنظمة الجهة، وصيانة الربط.</p></div>
+    <div class="card c-purple"><h4>التقييم</h4><p class="small mb0">مجموعات الاختبار، وإعادة التقييم عند كل تغيير.</p></div>
+    <div class="card c-amber"><h4>المراقبة</h4><p class="small mb0">أداة تتبع التنفيذ، ومن يقرأ التنبيهات.</p></div>
+  </div>
+  <div class="callout tip mt"><b>والمهام التي لم تنجح.</b> من ينجزها يدويًّا بعد رفضها؟ وقته تكلفة على المسار نفسه.</div>
+  <aside class="notes"><p>في المختبرات نحسب الوحدات والمراجعة فقط. في المشروع الختامي يظهر التقييم والمراقبة والتكامل بنودًا ثابتة في الموازنة.</p></aside>
+</section>
+
+<section class="slide" id="build-vs-run" data-lo="LO2">
+  <div class="kicker">موازنتان</div>
+  <h2>البناء يُدفع مرة، والتشغيل يُدفع كل شهر ويكبر مع الحجم</h2>
+  <table class="t">
+    <tr><th></th><th>موازنة البناء</th><th>موازنة التشغيل</th></tr>
+    <tr><td>أمثلة</td><td>التكامل، وإعداد مجموعات الاختبار، والتدريب</td><td>الوحدات النصية، والمراجعة، والمراقبة، والتقييم الدوري</td></tr>
+    <tr><td>يتغير مع</td><td>النطاق</td><td>الحجم ونسبة النجاح والحلقات</td></tr>
+    <tr><td>يُقاس بـ</td><td>إنجاز المشروع</td><td>التكلفة لكل مهمة ناجحة</td></tr>
+  </table>
+  <div class="callout warn mt"><b>الخطأ الشائع.</b> موازنة تجربة صغيرة تُعتمد ثم يُكتشف أن التشغيل الكامل عشرة أضعافها.</div>
+  <aside class="notes"><p>دراسة الجدوى وحالة الأعمال في LDS-ADV-201؛ هنا نكتفي بالفصل بين البندين.</p></aside>
+</section>
+
+<section class="slide" id="check-budget-figure" data-lo="LO2">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>أي رقم يدخل الموازنة؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO2">
+    <p class="lead">مسار الإعلانات: 41 تشغيلًا على 36 مهمة، نجحت منها 29، والمجموع 539.89 ريالًا شاملًا المراجعة. يسأل بند الموازنة: كم نضع لكل إعلان ناجح؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يقسم على التشغيلات، فيعامل التشغيل الفاشل والمرفوض كأنه إعلان ناجح">13.17 ريالًا: المجموع مقسومًا على التشغيلات الـ41</div>
+      <div class="opt" data-why="الوسيط يصف المهمة المعتادة، ولا يحمل تكلفة المهام التي لم تنجح">12.83 ريالًا: وسيط تكلفة المهام الناجحة</div>
+      <div class="opt" data-ok>18.62 ريالًا: المجموع مقسومًا على المهام الناجحة الـ29</div>
+      <div class="opt" data-why="يسقط المهام المرفوضة والفاشلة، وهي مدفوعة كاملة">12.46 ريالًا: متوسط تكلفة المهام الناجحة وحدها دون غيرها</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> الموازنة تدفع كل التشغيلات، ناجحها وفاشلها، والنتيجة التي تشتريها هي المهام الناجحة.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ج. الأرقام من مثال الإعلانات. من اختار الوسيط على حق في أنه يصف التجربة المعتادة، لكنه ليس رقم الموازنة.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-2" data-auto="lab" data-lab="1.2">
-  <aside class="notes">REPLACE: ما تراقبه أثناء عمل المشاركين، والمشكلات المعتادة، والبديل لمن لم يُنهِ مختبرًا سابقًا</aside>
+  <aside class="notes"><p>راقب الخطوة 4: من يعدّ المهمة المعادة مهمتين يخطئ في نسبة النجاح. والخطوة 2: من يحذف التشغيلات الفاشلة لأنها «بلا نتيجة».</p><p>الخطوة 7 تمرين على ما سيطلبه المقيِّم في المراجعة: تغيير نسبة النجاح وإعادة الحساب في دقيقة.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-2" data-label="بعد المختبر 1.2" data-lo="LO2">
+  <div class="kicker">بعد المختبر 1.2</div>
+  <h2>الوسيط 19.23 ريالًا، لكن الهيئة تدفع 30.21 ريالًا لكل حزمة مقبولة</h2>
+  <table class="t">
+    <tr><th>الرقم</th><th class="num">ريال</th></tr>
+    <tr><td>الوسيط</td><td class="num">19.23</td></tr>
+    <tr><td>المئين التسعون</td><td class="num">28.18</td></tr>
+    <tr class="hl"><td>المتوسط المحمَّل (35 ناجحة من 45، 77.8%)</td><td class="num">30.21</td></tr>
+    <tr><td>متوسط التشغيل</td><td class="num">21.15</td></tr>
+    <tr><td>متوسط الناجحة وحدها</td><td class="num">20.43</td></tr>
+  </table>
+  <div class="callout warn mt"><b>المراجعة 71% من المجموع.</b> 250 دقيقة من أصل 1,057.50 ريالًا.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_2_distribution.md. اسأل من أخرج رقمًا آخر، وابحث معه عن السبب: غالبًا تشغيلات فاشلة محذوفة أو PERCENTILE.EXC.</p><p>عند نسبة نجاح 70%: 33.57 ريالًا لكل نجاح.</p></aside>
 </section>
 
 <!-- الجلسة 3 -->
 
 <section class="slide section" id="s3" data-auto="section" data-session="3"></section>
 
-<section class="slide" id="s3-idea">
-  <div class="kicker">REPLACE: السؤال الذي تجيب عنه الشريحة</div>
-  <h2>REPLACE: فكرة واحدة في جملة</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: ست نقاط على الأكثر، كل منها فكرة تامة</li>
-      <li>REPLACE: أبرز العبارة الأساسية، والأرقام من تشغيل المختبر لا من الذاكرة</li>
-    </ul>
-    <div class="card c-teal"><h4>في دراسة الحالة</h4><p class="small mb0">REPLACE: اربط الفكرة بدراسة الحالة وبياناتها</p></div>
-  </div>
-  <div class="callout warn mt"><b>أين يقع الخطأ.</b> REPLACE: الخطأ الذي سيقع فيه المشاركون، وكيف يتعرفون عليه</div>
-  <aside class="notes">REPLACE: ما تقوله، والعرض الحي، والسؤال للقاعة، والخطأ الشائع وحلّه</aside>
+<section class="slide" id="ways-to-pay" data-lo="LO3">
+  <div class="kicker">نظم التسعير</div>
+  <h2>المورِّدون يبيعون الشيء نفسه بخمس طرق للعدّ</h2>
+  <table class="t">
+    <tr><th>الطريقة</th><th>تدفع مقابل</th><th>يرتفع الإنفاق حين</th></tr>
+    <tr><td>الوحدات النصية</td><td>كل وحدة مدخلات ومخرجات</td><td>يكبر الحجم أو تطول الحلقات</td></tr>
+    <tr><td>السعة المخصصة</td><td>وحدات سعة بالساعة</td><td>تشتري سعة أكثر مما تستعمل</td></tr>
+    <tr><td>المستخدم</td><td>مقعد لكل موظف في الشهر</td><td>يزيد عدد المقاعد غير المستعملة</td></tr>
+    <tr><td>الأرصدة</td><td>رصيد يُخصم بحسب الاستعمال</td><td>تتغير قيمة الرصيد لكل عملية</td></tr>
+    <tr><td>النتيجة</td><td>كل «نتيجة» كما يعرّفها المورِّد</td><td>يختلف تعريفه عن تعريفك للنجاح</td></tr>
+  </table>
+  <div class="callout note mt"><b>والالتزام يتقاطع معها كلها.</b> خصم مقابل حد أدنى أو مدة، يُدفع ولو انخفض الحجم.</div>
+  <aside class="notes"><p>الطرق الخمس لا تستبعد بعضها: عقد واحد قد يجمع مقاعد ورسم منصة وسعرًا لكل نتيجة.</p></aside>
 </section>
 
-<section class="slide" id="s3-steps">
-  <div class="kicker">خطوة بخطوة</div>
-  <h2>REPLACE: عملية تظهر خطوة مع كل ضغطة</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: الاسم</b>REPLACE: ما يحدث أولًا</div>
-    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: الاسم</b>REPLACE: الجزء التالي</div>
-    <div class="arrow frag" data-frag="c">←</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: الاسم</b>REPLACE: النتيجة</div>
+<section class="slide" id="annex-token-prices" data-lo="LO3" data-label="ملحق الأسعار 1">
+  <div class="kicker">ملحق مؤرخ: نوفمبر 2026</div>
+  <h2>أسعار الوحدات النصية المنشورة، بالدولار لكل مليون وحدة</h2>
+  <table class="t small">
+    <tr><th>النموذج</th><th class="num">مدخلات</th><th class="num">مدخلات مخزنة</th><th class="num">مخرجات</th></tr>
+    <tr><td><span class="en">Claude Opus 5.5</span></td><td class="num">4</td><td class="num">0.20</td><td class="num">20</td></tr>
+    <tr><td><span class="en">Claude Sonnet 5.5</span></td><td class="num">2</td><td class="num">0.10</td><td class="num">10</td></tr>
+    <tr><td><span class="en">Claude Haiku 5.5</span> (طلب حتى 100,000 وحدة)</td><td class="num">0.10</td><td class="num">0.01</td><td class="num">0.50</td></tr>
+    <tr><td><span class="en">gemini-3.8-flash</span> حتى 31 ديسمبر 2026</td><td class="num">0.75</td><td class="num">0.075</td><td class="num">3.75</td></tr>
+    <tr><td><span class="en">gemini-3.8-flash</span> من 1 يناير 2027</td><td class="num">1.50</td><td class="num">0.15</td><td class="num">7.50</td></tr>
+  </table>
+  <p class="small mt">لدى المزوّدين كليهما خصم 50% على المعالجة الحزمية غير الفورية. وسعر المخرجات عند <span class="en">Google</span> يشمل وحدات الاستدلال.</p>
+  <p class="xsmall muted">المصادر: <span class="en">Anthropic, Pricing</span>؛ <span class="en">Google AI Studio, Gemini API pricing</span> (الطبقة العادية). قُرئتا في 18 نوفمبر 2026، وتتغيران.</p>
+  <aside class="notes"><p>هذا ملحق للقراءة، لا للحساب: أسعار المختبرات من قوائم المقرر الاصطناعية بالريال، حتى لا تتقادم المختبرات حين تتغير الأسعار. أعد قراءة الصفحتين قبل كل دفعة.</p><p>لاحظ السطرين الأخيرين: سعر النموذج نفسه يتضاعف في تاريخ معلن مسبقًا. التخزين المؤقت عند Google له رسم تخزين بالساعة أيضًا.</p><p>المصادر: Anthropic, Pricing؛ Google AI Studio, Gemini API pricing.</p></aside>
+</section>
+
+<section class="slide" id="annex-other-schemes" data-lo="LO3" data-label="ملحق الأسعار 2">
+  <div class="kicker">ملحق مؤرخ: نوفمبر 2026</div>
+  <h2>المقاعد والنتائج والسعة كما تنشرها صفحات المورِّدين</h2>
+  <div class="cols cols-2">
+    <div class="card c-purple"><h4>مقاعد ونتائج: <span class="en">Intercom</span></h4><p class="small mb0">وكيلها <span class="en">Fin</span> بـ0.99 دولار لكل «نتيجة»، فوق مقاعد شهرية بين 19 و132 دولارًا للمقعد بحسب الخطة.</p></div>
+    <div class="card c-cyan"><h4>سعة: <span class="en">Microsoft Foundry</span></h4><p class="small mb0">النشر المخصص يُفوتَر بالساعة لكل وحدة سعة، أيًّا كان عدد الوحدات النصية المستهلكة، مع خصم مقابل حجز شهر أو سنة.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>الخلاصة.</b> REPLACE: الجملة التي تبقى في الذاكرة</div>
-  <aside class="notes">اضغط مرة لكل خطوة، وقل ما تضيفه كل خطوة قبل ظهور التالية. REPLACE: المثال الذي تشرحه</aside>
+  <div class="callout warn mt"><b>اقرأ تعريف «النتيجة».</b> عند <span class="en">Intercom</span> تُحتسب حين يؤكد العميل أن مشكلته حُلت، أو حين لا يطلب مساعدة أخرى بعد الرد، أو حين ينهي الوكيل إجراءً بما فيه التحويل إلى موظف.</div>
+  <p class="xsmall muted mt">المصادر: <span class="en">Intercom, Pricing</span>؛ <span class="en">Microsoft Learn, Provisioned throughput for Foundry Models</span>. قُرئتا في 18 نوفمبر 2026.</p>
+  <aside class="notes"><p>Intercom تعرض سعر خطة Essential مخفضًا للعملاء الجدد. اسأل القاعة: عميل لم يكتب مرة أخرى بعد الرد، هل حُلت مشكلته؟ ربما يئس. هذا هو الفرق بين «نتيجة» المورِّد ونجاح جهتك.</p><p>المصادر: Intercom, Pricing؛ Microsoft Learn, Provisioned throughput.</p></aside>
+</section>
+
+<section class="slide" id="capacity-utilisation" data-lo="LO3">
+  <div class="kicker">السعة والاستغلال</div>
+  <h2>السعة المخصصة تُدفع كل ساعة، فتكلفتها لكل طلب تتبع نسبة استغلالها</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>الطلبات تأتي في ساعات العمل، والسعة تُدفع 730 ساعة في الشهر</li>
+      <li>الوحدات تُحسب لأعلى دقيقة، لا للمتوسط</li>
+      <li>الاستغلال = ما استُعمل ÷ ما دُفع</li>
+    </ul>
+    <div class="card tint c-navy"><h4>مثال الإعلانات</h4><p class="small mb0">وحدة سعة بـ9,000 ريال في الشهر تغطي 12,000 إعلان. عند 2,000 إعلان: الاستغلال 16.7%، والإعلان الواحد يحمل 4.50 ريالات من السعة. عند 8,000: الاستغلال 66.7%، و1.13 ريال.</p></div>
+  </div>
+  <aside class="notes"><p>الأرقام من مثال المقرر لإدارة الاتصال، لا من مورِّد حقيقي. الحساب: 9,000 ÷ 2,000 = 4.50؛ 9,000 ÷ 8,000 = 1.125.</p><p>الرسالة الثابتة في هذا المقرر: نسبة الاستغلال هي التي تحدد تكلفة السعة.</p></aside>
+</section>
+
+<section class="slide" id="breakeven" data-lo="LO3">
+  <div class="kicker">نقطة التعادل</div>
+  <h2>التعادل هو الحجم الذي يتساوى عنده نظامان، ويتغير الخيار بعده</h2>
+  <table class="t">
+    <tr><th>مثال الإعلانات</th><th>التكلفة الشهرية</th></tr>
+    <tr><td>الوحدات النصية</td><td>1.70 ريال × الحجم</td></tr>
+    <tr><td>النتيجة</td><td>2,000 رسم منصة + 1.20 × 0.97 حزمة مسلَّمة لكل طلب × الحجم</td></tr>
+    <tr><td>السعة</td><td>9,000 لكل وحدة تغطي 12,000 طلب</td></tr>
+  </table>
+  <div class="flow mt">
+    <div class="step c-teal"><b>تحت 3,731</b>الوحدات النصية أرخص من النتيجة</div>
+    <div class="arrow">←</div>
+    <div class="step c-cyan"><b>من 3,731 إلى 6,014</b>النتيجة أرخص الثلاثة</div>
+    <div class="arrow">←</div>
+    <div class="step c-purple"><b>من 6,014 إلى 12,000</b>السعة أرخص حتى تمتلئ الوحدة</div>
+  </div>
+  <aside class="notes"><p>الحساب: 2,000 ÷ (1.70 − 1.164) = 3,731؛ و(9,000 − 2,000) ÷ 1.164 = 6,014؛ والسعة تعادل الوحدات النصية عند 9,000 ÷ 1.70 = 5,294، لكن النتيجة أرخص منهما هناك. والسعة درجات: حين يتجاوز الحجم 12,000 تُشترى وحدة ثانية فتقفز التكلفة، ويُعاد حساب التعادل.</p></aside>
+</section>
+
+<section class="slide" id="choice-by-volume" data-lo="LO3">
+  <div class="kicker">الخيار يتبع الحجم</div>
+  <h2>الخيار الصحيح عند حجم اليوم قد يكون الخطأ عند حجم السنة القادمة</h2>
+  <table class="t">
+    <tr><th>الحجم الشهري</th><th class="num">الوحدات النصية</th><th class="num">النتيجة</th><th class="num">السعة</th><th>الخيار</th></tr>
+    <tr><td>2,000</td><td class="num">3,400</td><td class="num">4,328</td><td class="num">9,000</td><td>الوحدات النصية</td></tr>
+    <tr><td>8,000</td><td class="num">13,600</td><td class="num">11,312</td><td class="num">9,000</td><td>السعة</td></tr>
+  </table>
+  <div class="callout tip mt"><b>اكتب لكل خيار ما يحدث لو أخطأ التقدير.</b> السعة عند 8,000 تبقى 9,000 ريال لو بقي الحجم 2,000.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات. اسأل: من في جهته عقد اختير على حجم التجربة؟ ومن اختار سعة على حجم لم يأتِ؟</p></aside>
+</section>
+
+<section class="slide" id="commitments" data-lo="LO3">
+  <div class="kicker">الالتزامات</div>
+  <h2>الخصم مقابل الالتزام يشتري سعرًا أقل، ويبيع المرونة</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>ما تكسبه</h4><p class="small mb0">سعر أقل لكل وحدة أو ساعة، وفاتورة متوقعة يسهل وضعها في الموازنة.</p></div>
+    <div class="card c-coral"><h4>ما تخاطر به</h4><p class="small mb0">حد أدنى يُدفع لو انخفض الحجم، أو تغير النموذج، أو ظهر سعر أقل في السوق.</p></div>
+  </div>
+  <div class="callout note mt"><b>سؤال قبل التوقيع.</b> ما أقل حجم شهري تتوقعه بثقة؟ التزم عنده، لا عند الحجم المأمول.</div>
+  <aside class="notes"><p>أسعار هذا السوق تتغير بسرعة، كما رأينا في سطري gemini-3.8-flash. الالتزام الطويل يثبّت سعرًا قد يصبح مرتفعًا. التفاوض على العقود موضوع مقرر آخر في المسار.</p></aside>
+</section>
+
+<section class="slide" id="check-pricing" data-lo="LO3">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>أي خيار أرخص عند 8,000؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">مسار الإعلانات: 1.70 ريال للطلب بالوحدات النصية؛ أو 1.20 ريال لكل حزمة مسلَّمة (0.97 لكل طلب) ورسم منصة 2,000 ريال؛ أو وحدة سعة بـ9,000 ريال تغطي 12,000 طلب. أي خيار أرخص عند 8,000 طلب في الشهر؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يضرب السعر في الحجم وينسى رسم المنصة والحزم المسلَّمة؛ المجموع الصحيح 11,312">النتيجة: 9,600 ريال في الشهر</div>
+      <div class="opt" data-ok>السعة: 9,000 ريال في الشهر</div>
+      <div class="opt" data-why="الوحدات النصية 13,600 عند هذا الحجم، أعلى من الخيارين الآخرين">الوحدات النصية: 13,600 ريال في الشهر</div>
+      <div class="opt" data-why="هذا رقم النتيجة الصحيح، لكنه أعلى من السعة بـ2,312 ريالًا">النتيجة: 11,312 ريالًا في الشهر</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> وحدة واحدة تكفي 8,000 طلب، فتبقى السعة 9,000، والنتيجة 2,000 + 1.164 × 8,000 = 11,312.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ب. الأرقام من مثال الإعلانات. من اختار «9,600» نسي رسم المنصة، وهذا هو الخطأ الأشيع في عروض التسعير بالنتيجة.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-3" data-auto="lab" data-lab="1.3">
-  <aside class="notes">REPLACE: ما تراقبه أثناء عمل المشاركين، والمشكلات المعتادة، والبديل لمن لم يُنهِ مختبرًا سابقًا</aside>
+  <aside class="notes"><p>قل قبل البدء: الأسعار في القوائم الثلاث من تصميم المقرر، والملحق الحقيقي على الشرائح للقراءة. لا يستبدل أحد الأسعار.</p><p>راقب الخطوة 3: من يضرب في ساعات العمل بدل 730 ساعة، ومن ينسى عامل الذروة. وراقب الخطوة 4: عمود note في القائمة ج يقول إن الحزمة تُحتسب حين تُسلَّم.</p></aside>
 </section>
 
-<!-- الجلسة 4 -->
-
-<section class="slide section" id="s4" data-auto="section" data-session="4"></section>
-
-<section class="slide" id="s4-idea">
-  <div class="kicker">REPLACE: السؤال الذي تجيب عنه الشريحة</div>
-  <h2>REPLACE: فكرة واحدة في جملة</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: ست نقاط على الأكثر، كل منها فكرة تامة</li>
-      <li>REPLACE: أبرز العبارة الأساسية، والأرقام من تشغيل المختبر لا من الذاكرة</li>
-    </ul>
-    <div class="card c-teal"><h4>في دراسة الحالة</h4><p class="small mb0">REPLACE: اربط الفكرة بدراسة الحالة وبياناتها</p></div>
-  </div>
-  <div class="callout warn mt"><b>أين يقع الخطأ.</b> REPLACE: الخطأ الذي سيقع فيه المشاركون، وكيف يتعرفون عليه</div>
-  <aside class="notes">REPLACE: ما تقوله، والعرض الحي، والسؤال للقاعة، والخطأ الشائع وحلّه</aside>
+<section class="slide" id="debrief-1-3" data-label="بعد المختبر 1.3" data-lo="LO3">
+  <div class="kicker">بعد المختبر 1.3</div>
+  <h2>الخيار يتغير مرتين بين 1,500 و24,000 طلب</h2>
+  <table class="t">
+    <tr><th>الحجم</th><th class="num">أ</th><th class="num">ب</th><th class="num">ج</th><th>الخيار</th></tr>
+    <tr><td>1,500</td><td class="num">8,640</td><td class="num">36,500</td><td class="num">11,089</td><td>أ</td></tr>
+    <tr><td>6,000</td><td class="num">34,560</td><td class="num">36,500</td><td class="num">32,358</td><td>ج</td></tr>
+    <tr><td>24,000</td><td class="num">138,240</td><td class="num">109,500</td><td class="num">117,430</td><td>ب</td></tr>
+  </table>
+  <div class="callout warn mt"><b>ج يكلف 5.80 ريال لكل حزمة مقبولة، لا 4.75.</b> واستغلال ب عند 24,000 طلب 10.84% فقط.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_3_pricing.md. التعادل: أ وج عند 3,869؛ أ وب بوحدة واحدة عند 6,337؛ ج وب بوحدة عند 6,876؛ وبثلاث وحدات 19,010 و22,322.</p><p>لكل حزمة مقبولة شاملة المراجعة تتقارب الخيارات (بين 25.11 و28.58 عند الحجمين الأكبرين): المراجعة 15.90 ريالًا لكل طلب في كل خيار.</p></aside>
 </section>
 
-<section class="slide" id="s4-steps">
-  <div class="kicker">خطوة بخطوة</div>
-  <h2>REPLACE: عملية تظهر خطوة مع كل ضغطة</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: الاسم</b>REPLACE: ما يحدث أولًا</div>
-    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: الاسم</b>REPLACE: الجزء التالي</div>
-    <div class="arrow frag" data-frag="c">←</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: الاسم</b>REPLACE: النتيجة</div>
-  </div>
-  <div class="callout tip mt frag"><b>الخلاصة.</b> REPLACE: الجملة التي تبقى في الذاكرة</div>
-  <aside class="notes">اضغط مرة لكل خطوة، وقل ما تضيفه كل خطوة قبل ظهور التالية. REPLACE: المثال الذي تشرحه</aside>
-</section>
-
-<section class="slide lab" id="lab-1-4" data-auto="lab" data-lab="1.4">
-  <aside class="notes">REPLACE: ما تراقبه أثناء عمل المشاركين، والمشكلات المعتادة، والبديل لمن لم يُنهِ مختبرًا سابقًا</aside>
-</section>
-
-<section class="slide" id="wrap-up">
-  <div class="kicker">خلاصة اليوم 1</div>
-  <h2>ثلاثة أمور تبقى معك</h2>
-  <div class="cols cols-3">
-    <div class="card c-teal"><h4>تذكّر</h4><p class="small mb0">REPLACE: فكرة يحتفظ بها المشاركون</p></div>
-    <div class="card c-coral"><h4>تذكّر</h4><p class="small mb0">REPLACE: فكرة يحتفظ بها المشاركون</p></div>
-    <div class="card c-purple"><h4>تذكّر</h4><p class="small mb0">REPLACE: فكرة يحتفظ بها المشاركون</p></div>
-  </div>
+<section class="slide" id="wrap-up" data-lo="LO1 LO2 LO3">
+  <div class="kicker">الخلاصة</div>
+  <h2>ثلاثة أشياء تأخذها من اليوم الأول</h2>
+  <ol class="bullets">
+    <li><b>المفوتَر ليس المسؤول:</b> الحلقة تعيد إرسال السياق، والتكلفة تُحسب للتشغيل كله</li>
+    <li><b>التكلفة لكل مهمة ناجحة توزيع:</b> الوسيط والمئين التسعون والمتوسط المحمَّل، ونسبة النجاح بجانبها</li>
+    <li><b>الخيار يتبع الحجم:</b> لكل نظام تسعير حجم تعادل، والسعة تتبع الاستغلال</li>
+  </ol>
+  <aside class="notes"><p>اطلب من كل مشارك أن يكتب الرقم الذي سيرفعه لو سُئل غدًا عن «واصِف»، والتعريف الذي بُني عليه.</p></aside>
 </section>
 
 <section class="slide dark" id="next" data-label="التالي">
-  <div class="kicker">التالي</div>
-  <h2>اليوم 2: REPLACE: موضوع هذه الوحدة في كلمات قليلة</h2>
-  <p class="lead">REPLACE: ما يجهزه المشاركون قبل ذلك، والمختبرات غير المكتملة يمكن إكمالها في المنزل</p>
-  <aside class="notes">REPLACE: الحسابات أو التثبيتات أو القراءة التي يحتاجها المشاركون قبل الوحدة التالية</aside>
+  <div class="kicker">قبل اليوم الثاني</div>
+  <h1>عشرون دقيقة على صفحة التدريب</h1>
+  <p class="lead">حلّ أسئلة الحساب اليدوي في صفحة التدريب: غدًا حساب تكلفة مراقب على سجل مطبوع، دون ذكاء اصطناعي. واحتفظ بجداولك الثلاثة: يعود إليها مختبر الروافع والمشروع الختامي.</p>
+  <aside class="notes"><p>صفحة التدريب فيها أسئلة على أمثلة موازية، لا على ملفات المختبرات. الحساب المراقب في اليوم الثاني ساعة كاملة: خمس دقائق تعليمات، وخمسون للحساب، وخمس للتسليم.</p></aside>
 </section>

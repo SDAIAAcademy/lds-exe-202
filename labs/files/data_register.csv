@@ -1,0 +1,7 @@
+﻿field,source,classification,enters_agent,note
+dataset_title,publication request,عام,yes,title of a dataset already approved for open publication
+dataset_columns_and_profile,approved dataset,عام,yes,the dataset itself is classified Public before the request is raised
+metadata_standard_sections,published metadata standard,عام,yes,the authority publishes its metadata standard
+owner_department,publication request,عام,yes,department name only
+requester_name_and_contact,request system,مقيد,no,stays in the request system; never sent to the agent
+internal_review_comments,steward workspace,مقيد,no,stewards write them after the run; never sent to the agent

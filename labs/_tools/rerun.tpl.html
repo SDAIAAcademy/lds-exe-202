@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مُشغِّل «واصِف»: إعادة التشغيل بالروافع</title>
+<style>
+  :root { --ink: #1b2540; --paper: #f6f4ee; --line: #d9d5c8; --teal: #0f766e; --coral: #b42318; --amber: #92400e; }
+  * { box-sizing: border-box; }
+  body { font-family: "IBM Plex Sans Arabic", system-ui, sans-serif; margin: 0; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 16px; }
+  header { background: var(--ink); color: #fff; padding: 14px 16px; }
+  header h1 { font-size: 21px; margin: 0; }
+  header p { margin: 2px 0 0; font-size: 14px; }
+  main { max-width: 1000px; margin: 0 auto; padding: 12px 16px 60px; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+  h2 { font-size: 19px; margin: 4px 0 8px; }
+  label.lev { display: block; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; margin: 6px 0; cursor: pointer; }
+  label.lev.trap { border-color: #e8b4ae; background: #fff7f5; }
+  label.lev small { display: block; color: #4b5563; }
+  button { font: inherit; font-weight: 600; padding: 7px 14px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; cursor: pointer; margin: 4px 0; }
+  button.alt { background: #fff; color: var(--ink); border-color: #b9b4a4; }
+  .scroll { overflow-x: auto; max-height: 460px; overflow-y: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 3px 7px; text-align: start; white-space: nowrap; }
+  th { background: #efece2; position: sticky; top: 0; }
+  .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+  .note { background: #eef6f5; border: 1px solid #b7d9d5; border-radius: 10px; padding: 8px 12px; font-size: 14.5px; }
+  .warn { background: #fff7ed; border: 1px solid #f3c78b; border-radius: 10px; padding: 8px 12px; font-size: 14.5px; }
+  td.failed { color: var(--coral); } td.rejected { color: var(--amber); }
+</style>
+</head>
+<body>
+<header>
+  <h1>مُشغِّل «واصِف»: إعادة التشغيل بالروافع</h1>
+  <p>المختبر 2.1 من مقرر اقتصاديات الذكاء الاصطناعي والوكلاء. هيئة تطوير مدينة الأقحوان، مكتب البيانات المفتوحة. كل البيانات اصطناعية ومصنفة «عام».</p>
+</header>
+<main>
+  <div class="warn"><b>«واصِف» هنا ليس نموذجًا لغويًّا.</b> هو برنامج مكتوب السلوك بسحبات عشوائية ثابتة، يقلّد حلقة الوكيل: خطة، فاستدعاء أدوات، فاسترجاع، فمسودات، فتحقق، فإعادة محاولة. يعطي التشغيل نفسه لكل من في القاعة. وأثر كل رافعة فيه افتراض اصطناعي وضعه المقرر، لا قياس لنموذج أو مزوّد حقيقي.</div>
+
+  <section>
+    <h2>1. اختر الروافع</h2>
+    <p>شغّل خط الأساس أولًا دون أي رافعة، ثم كل رافعة من رافعتيك وحدها، ثم الاثنتين معًا.</p>
+    <label class="lev"><input type="checkbox" value="routing"> توجيه النماذج <small>الخطة وطلبات الأدوات والوصف الإنجليزي والتجميع إلى النموذج الصغير؛ المسودة العربية والمراجعات تبقى على الكبير</small></label>
+    <label class="lev"><input type="checkbox" value="caching"> التخزين المؤقت للبادئة <small>ما يتكرر في بداية السياق من استدعاء إلى التالي يُقرأ من ذاكرة المزوّد بعُشر سعر المدخلات</small></label>
+    <label class="lev"><input type="checkbox" value="short"> تقصير السياق <small>بعد المسودة العربية يحل ملخص محل ملف تعريف الأعمدة وأقسام المعيار، ولا تبقى إلا آخر نتيجة تحقق</small></label>
+    <label class="lev"><input type="checkbox" value="retrycap"> سقف لإعادة المحاولة <small>ثلاث مراجعات على الأكثر بدل ست، ثم يتوقف التشغيل ويُعاد مرة واحدة</small></label>
+    <label class="lev trap"><input type="checkbox" value="novalidate"> اقتراح المورِّد: تخطي أداة التحقق <small>لا استدعاء لأداة التحقق ولا مراجعات؛ يقول المورِّد إنه «يوفر الوحدات النصية»</small></label>
+    <button id="run">شغّل الطلبات الخمسة والأربعين</button>
+    <button id="dl" class="alt" disabled>نزّل السجل بصيغة CSV</button>
+    <p id="status" class="note">لم يُشغَّل شيء بعد.</p>
+  </section>
+
+  <section>
+    <h2>2. سجل التشغيلات</h2>
+    <p>تكلفة الوحدات النصية محسوبة بقائمة الأسعار أ. أما التكلفة لكل مهمة ناجحة فتحسبها أنت في جدول البيانات.</p>
+    <div class="scroll"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+  </section>
+
+  <section>
+    <details>
+      <summary>3. تحقق من أرقامك (افتحه بعد أن تحسبها)</summary>
+      <div id="summary"></div>
+    </details>
+  </section>
+</main>
+<script>
+/*SIM*/
+/*DATA*/
+(function () {
+  const COLS = ['run_id', 'task_id', 'dataset', 'attempt', 'status', 'fail_reason', 'retries', 'model_calls', 'in_L', 'cached_L', 'out_L', 'reason_L', 'in_S', 'cached_S', 'out_S', 'reason_S', 'review_min', 'data_class'];
+  const NAMES = { routing: 'توجيه النماذج', caching: 'التخزين المؤقت', short: 'تقصير السياق', retrycap: 'سقف إعادة المحاولة', novalidate: 'تخطي التحقق' };
+  const byId = new Map(CASE.tasks.map(function (t) { return [t.task_id, t]; }));
+  let last = null;
+  let lastName = 'baseline';
+  function fmt(x) { return x.toFixed(2); }
+  function render(runs) {
+    const thead = document.querySelector('#tbl thead');
+    const tbody = document.querySelector('#tbl tbody');
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+    const hr = document.createElement('tr');
+    COLS.concat(['token_sar']).forEach(function (c) { const th = document.createElement('th'); th.textContent = c; hr.appendChild(th); });
+    thead.appendChild(hr);
+    runs.forEach(function (r) {
+      const tr = document.createElement('tr');
+      COLS.forEach(function (c) {
+        const td = document.createElement('td');
+        td.textContent = c === 'dataset' ? byId.get(r.task_id).dataset : c === 'data_class' ? 'عام' : String(r[c]);
+        if (c === 'status') td.className = r.status;
+        tr.appendChild(td);
+      });
+      const td = document.createElement('td');
+      td.textContent = fmt(tokenCost(r, CASE.prices));
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    });
+  }
+  function toCsv(runs) {
+    const esc = function (v) { const s = String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+    const lines = [COLS.join(',')].concat(runs.map(function (r) {
+      return COLS.map(function (c) { return esc(c === 'dataset' ? byId.get(r.task_id).dataset : c === 'data_class' ? 'عام' : r[c]); }).join(',');
+    }));
+    return '﻿' + lines.join('\n') + '\n';
+  }
+  document.getElementById('run').addEventListener('click', function () {
+    const chosen = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(function (x) { return x.value; });
+    const order = ['routing', 'caching', 'short', 'retrycap', 'novalidate'];
+    chosen.sort(function (a, b) { return order.indexOf(a) - order.indexOf(b); });
+    last = runBatch(CASE.tasks, CASE.seed, chosen);
+    lastName = chosen.length ? chosen.join('+') : 'baseline';
+    render(last);
+    const s = summarise(last, CASE.prices, CASE.rate);
+    document.getElementById('status').textContent = 'التشغيل: ' + (chosen.length ? chosen.map(function (c) { return NAMES[c]; }).join(' + ') : 'خط الأساس') +
+      '. عدد التشغيلات: ' + s.runs + '، ومنها ' + s.failed + ' بلا حزمة.';
+    document.getElementById('summary').innerHTML = '';
+    const tbl = document.createElement('table');
+    [['المهام', s.tasks], ['المهام الناجحة', s.accepted], ['نسبة النجاح', fmt(100 * s.success_rate) + '%'],
+     ['الوسيط لكل مهمة ناجحة (ريال)', fmt(s.median)], ['المئين التسعون (ريال)', fmt(s.p90)],
+     ['المتوسط المحمَّل: كل التكلفة على المهام الناجحة (ريال)', fmt(s.loaded_mean)],
+     ['تكلفة الوحدات النصية لكل مهمة ناجحة (ريال)', fmt(s.token_per_success)], ['دقائق المراجعة', String(s.review_min)]
+    ].forEach(function (row) {
+      const tr = document.createElement('tr');
+      row.forEach(function (v) { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+      tbl.appendChild(tr);
+    });
+    document.getElementById('summary').appendChild(tbl);
+    document.getElementById('dl').disabled = false;
+  });
+  document.getElementById('dl').addEventListener('click', function () {
+    if (!last) return;
+    const blob = new Blob([toCsv(last)], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'rerun_' + lastName + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+})();
+</script>
+</body>
+</html>

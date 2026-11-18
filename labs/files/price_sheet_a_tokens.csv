@@ -1,0 +1,9 @@
+﻿item,model,price_sar,per,note
+input,large,15,"1,000,000 tokens",uncached input
+cached_input,large,1.5,"1,000,000 tokens",input read from the provider cache
+output,large,75,"1,000,000 tokens",visible output and reasoning tokens
+input,small,1.2,"1,000,000 tokens",uncached input
+cached_input,small,0.12,"1,000,000 tokens",input read from the provider cache
+output,small,6,"1,000,000 tokens",visible output and reasoning tokens
+failed_runs,all,,,"every token sent or generated is billed, whatever the result"
+commitment,all,0,month,pay as you go; no minimum
