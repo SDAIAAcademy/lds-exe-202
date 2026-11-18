@@ -19,7 +19,7 @@ export const PRICES_A = { L: { in: 15, cached: 1.5, out: 75 }, S: { in: 1.2, cac
 export const REVIEW_RATE = 3;      // SAR per steward minute, loaded
 export const SHEET_B = { unit_hour: 50, unit_tpm: 550000, hours_month: 730, work_minutes: 10560, peak: 2 };
 export const SHEET_C = { per_pack: 4.75, platform_month: 4000 };
-export const RUNAWAY = { day: 19, extra_sar: 6631.2, runs: 16, max_run_sar: 412.8 }; // 19 October: a stuck loop with the retry limit switched off by a configuration change
+export const RUNAWAY = { day: 19, extra_sar: 6631.2, runs: 17, max_run_sar: 412.8 }; // 19 October: a stuck loop with the retry limit switched off by a configuration change
 export const VOLUMES = [1500, 6000, 24000];
 export const PROFILE = { runs: 1.085, input: 312000, output: 14400, delivered: 0.995, accepted: 0.815, review_min: 5.3 };
 
@@ -211,7 +211,9 @@ let capstoneKey = null;
     const acc = Math.round(req * (0.80 + 0.03 * r()));
     let spend = req * a * (0.95 + 0.1 * r());
     spend = r2(spend);
-    rows.push([m, 'Wasif publication packs', 'A tokens', req, acc, spend, 0, Math.round(req * PROFILE.review_min)]);
+    // September is the month the usage profile of lab 1.3 was measured on: the same 1,000 requests
+    const sep = m === '2026-09';
+    rows.push([m, 'Wasif publication packs', 'A tokens', req, sep ? Math.round(req * PROFILE.accepted) : acc, sep ? r2(req * a) : spend, 0, Math.round(req * PROFILE.review_min)]);
     const nreq = noticeReq[i];
     const nacc = Math.round(nreq * (0.86 + 0.04 * r()));
     rows.push([m, 'Communications notices', 'A tokens', nreq, nacc, r2(nreq * 2.1 * (0.95 + 0.1 * r())), 0, Math.round(nreq * 4.1)]);

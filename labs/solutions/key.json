@@ -344,11 +344,11 @@
       {
         "month": "2026-09",
         "requests": 1000,
-        "accepted": 818,
-        "token_sar": 5488.36,
+        "accepted": 815,
+        "token_sar": 5760,
         "review_min": 5300,
-        "unit_cost_sar": 26.15,
-        "token_per_accepted": 6.71
+        "unit_cost_sar": 26.58,
+        "token_per_accepted": 7.07
       },
       {
         "month": "2026-10",
@@ -364,7 +364,7 @@
     "runaway_day": {
       "day": 19,
       "extra_sar": 6631.2,
-      "runs": 16,
+      "runs": 17,
       "max_run_sar": 412.8
     }
   },
