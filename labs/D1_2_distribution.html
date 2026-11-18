@@ -35,7 +35,7 @@
   <div class="step">
     <h3>2 · تكلفة الوحدات النصية لكل تشغيل <span class="min">15 د</span></h3>
     <p>في عمود جديد: المدخلات غير المخزنة × سعر المدخلات، والمخزنة × سعر المخزنة، والمخرجات والاستدلال × سعر المخرجات، للنموذج الكبير (<code>_L</code>) والصغير (<code>_S</code>)، ثم القسمة على مليون. التشغيلات الفاشلة لها وحدات أيضًا: لا تتركها.</p>
-    <div class="prompt" data-tool="جدول بيانات">=(I2*<span class="ph">سعر_مدخلات_الكبير</span>+J2*<span class="ph">سعر_المخزن_الكبير</span>+(K2+L2)*<span class="ph">سعر_مخرجات_الكبير</span>+M2*<span class="ph">سعر_مدخلات_الصغير</span>+N2*<span class="ph">سعر_المخزن_الصغير</span>+(O2+P2)*<span class="ph">سعر_مخرجات_الصغير</span>)/1000000</div>
+    <div class="prompt" data-tool="جدول بيانات">=(I2 * <span class="ph">سعر_مدخلات_الكبير</span> + J2 * <span class="ph">سعر_المخزن_الكبير</span> + (K2 + L2) * <span class="ph">سعر_مخرجات_الكبير</span> + M2 * <span class="ph">سعر_مدخلات_الصغير</span> + N2 * <span class="ph">سعر_المخزن_الصغير</span> + (O2 + P2) * <span class="ph">سعر_مخرجات_الصغير</span>) / 1000000</div>
   </div>
 
   <div class="step">
@@ -46,8 +46,8 @@
   <div class="step">
     <h3>4 · تكلفة كل مهمة، والمهام الناجحة <span class="min">15 د</span></h3>
     <p>في ورقة ثانية اكتب معرّفات المهام الخمس والأربعين مرة واحدة. لكل مهمة: مجموع تكلفة تشغيلاتها، وعلامة 1 إن كان لها تشغيل مقبول. ثم عمود ثالث فيه التكلفة للمهام الناجحة وحدها، ويبقى فارغًا لغيرها.</p>
-    <div class="prompt" data-tool="جدول بيانات">=SUMIF(runs!B:B;A2;runs!<span class="ph">عمود_تكلفة_التشغيل</span>)
-=IF(COUNTIFS(runs!B:B;A2;runs!E:E;"accepted")>0;1;0)
+    <div class="prompt" data-tool="جدول بيانات">=SUMIF(runs!B:B; A2; runs!<span class="ph">عمود_تكلفة_التشغيل</span>)
+=IF(COUNTIFS(runs!B:B; A2; runs!E:E; "accepted") > 0; 1; 0)
 =IF(C2=1;B2;"")</div>
   </div>
 
