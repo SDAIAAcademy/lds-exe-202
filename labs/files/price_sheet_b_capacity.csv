@@ -1,0 +1,6 @@
+﻿item,value,unit,note
+unit_price,50,SAR per unit per hour,a dedicated deployment of the same large model
+unit_throughput,550000,tokens per minute per unit,input and output tokens together
+billed_hours,730,hours per month,"every hour of the month, used or not"
+minimum_term,1,month,units are bought for whole months
+tokens,0,SAR,no charge per token inside the units bought

@@ -1,0 +1,8 @@
+﻿measure,value,unit,note
+runs_per_request,1.085,runs,a failed run is re-run once
+input_tokens_per_request,312000,tokens,"all runs of the request, large model, no cache"
+output_tokens_per_request,14400,tokens,"visible output and reasoning, all runs"
+delivered_packs_per_request,0.995,packs,accepted or rejected by the steward
+accepted_packs_per_request,0.815,packs,the success rate
+review_minutes_per_request,5.3,minutes,steward review of delivered packs
+source,September 2026,,"1,000 requests of the Open Data Office, measured with the same definitions"

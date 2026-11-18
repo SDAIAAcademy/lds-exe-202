@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-ax="deck" data-track="executives">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اليوم 1 · من الفاتورة إلى تكلفة الوحدة · اقتصاديات الذكاء الاصطناعي والوكلاء</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day1.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="اقتصاديات الذكاء الاصطناعي والوكلاء" data-track="executives" data-day="اليوم 1">
+<section class="slide title" id="title" data-auto="title" data-label="الترحيب" data-n="1">
+  <div class="kicker">أكاديمية سدايا · اقتصاديات الذكاء الاصطناعي والوكلاء</div>
+  <h1>من الفاتورة إلى تكلفة الوحدة</h1>
+  <p class="lead mt">اليوم 1: يوم كامل بثلاث جلسات: سجل تشغيل واحد، ثم 50 تشغيلًا موسومًا، ثم ثلاث قوائم أسعار عند ثلاثة أحجام</p>
+  <div class="meta"><span class="track">مسار التنفيذيين والقادة</span><span>يومان تدريبيان + يوم للمشروع الختامي</span><span>3 جلسات · 3 مختبرات</span><span>LDS-EXE-202</span></div>
+  <aside class="notes"><p>رحّب بالقاعة، وعرّف بنفسك في جملة. ثم اسأل: من في القاعة يعرف كم كلف آخر طلب أرسله إلى مساعد ذكاء اصطناعي في جهته؟ ومن يعرف كم كلفت المهمة التي أنجزها؟ الفرق بين السؤالين هو موضوع اليومين.</p><p>اليوم الأول ثلاث جلسات: سجل تشغيل واحد، ثم 50 تشغيلًا، ثم ثلاث قوائم أسعار. كل مختبر في جدول بيانات، ولا كود.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="جدول اليوم" data-n="2">
+  <div class="kicker">اليوم</div>
+  <h2>من الفاتورة إلى تكلفة الوحدة</h2>
+  <div class="agenda"><div class="item"><div><b>الجلسة 1 · الوحدات المفوترة ليست ما سأله المستخدم</b><small>وحدات المدخلات والمخرجات والمخزنة مؤقتًا والاستدلال، ولماذا يتحول طلب واحد إلى استدعاءات كثيرة، وانخفاض سعر الوحدة مع ارتفاع الإنفاق</small></div></div><div class="item"><div><b>الجلسة 2 · التكلفة لكل مهمة ناجحة توزيع لا رقم</b><small>التشغيل والمهمة والنجاح، والتشغيلات الفاشلة التي تُدفع تكلفتها، ووقت المراجعة البشرية، والوسيط والطرف، والتكاليف الخفية، وموازنة البناء مقابل موازنة التشغيل</small></div></div><div class="item"><div><b>الجلسة 3 · ثلاث طرق للدفع عند ثلاثة أحجام</b><small>التسعير بالوحدات النصية وبالسعة ونسبة استغلالها وبالمستخدم وبالأرصدة وبالنتيجة وبالالتزام، ونقطة التعادل، وملحق أسعار مؤرخ</small></div></div></div>
+  <aside class="notes"><p>الخيط: من الفاتورة إلى تكلفة الوحدة. كل جلسة تنتهي بنقطة تحقق ثم مختبر، والأرقام التي تخرج من المختبرات تعود في اليوم الثاني وفي المشروع الختامي.</p></aside>
+</section>
+
+<section class="slide" id="setup-check" data-label="التجهيز" data-n="3">
+  <div class="kicker">قبل أن نبدأ</div>
+  <h2>جدول بيانات مفتوح، وملف واحد يُقرأ بالعربية</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>جدول بيانات:</b> <span class="en">LibreOffice Calc</span> أو <span class="en">Microsoft Excel</span></li>
+      <li><b>صفحة المقرر:</b> المختبرات وملفاتها من صفحة كل مختبر</li>
+      <li><b>متصفح:</b> لمختبر اليوم الثاني</li>
+      <li>لا حساب ولا مفتاح ولا تثبيت</li>
+    </ul>
+    <div class="card c-teal"><h4>الاختبار: دقيقة واحدة</h4><p class="small mb0">نزّل <code>runs_50.csv</code> من صفحة المختبر 1.2 وافتحه. إن ظهر عمود <code>dataset</code> بالعربية سليمًا، فالجهاز جاهز.</p></div>
+  </div>
+  <div class="callout note mt"><b>إن ظهرت رموز غريبة.</b> افتح الملف من داخل البرنامج واختر الترميز <span class="en">UTF-8</span>.</div>
+  <aside class="notes"><p>الملفات محفوظة بترميز UTF-8 مع علامة في أولها يقرؤها Excel. إن ظهرت رموز غير مقروءة في LibreOffice، فالحل نافذة الاستيراد: Character set ثم UTF-8، والفاصل الفاصلة.</p><p>من لا يملك جدول بيانات على جهازه يستطيع استعمال نسخة الويب من Excel بحساب جهته، أو LibreOffice المحمولة.</p></aside>
+</section>
+
+<!-- الجلسة 1 -->
+
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="4">
+  <div class="kicker">الجلسة 1</div>
+  <h1>الوحدات المفوترة ليست ما سأله المستخدم</h1>
+  <ul class="bullets outcomes"><li>تميّز بين أنواع الوحدات النصية الأربعة في فاتورة نموذج مستضاف</li><li>تتتبع ما يُعاد إرساله في كل استدعاء من حلقة وكيل</li><li>تشرح لماذا لا يكفي السعر لكل وحدة نصية لتقدير تكلفة مسار عمل</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="case-intro" data-lo="LO1" data-n="5" data-session="1">
+  <div class="kicker">دراسة الحالة</div>
+  <h2>«واصِف» يُعدّ حزم النشر لمكتب البيانات المفتوحة في هيئة تطوير مدينة الأقحوان</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>مالك البيانات يطلب نشر مجموعة بيانات صُنفت «عامة»</li>
+      <li>«واصِف» يكتب الوصف بالعربية والإنجليزية والبيانات الوصفية، ويتحقق منها بأداة</li>
+      <li>أمينة البيانات هتون الشدي أو أحد فريقها يقبل الحزمة أو يرفضها</li>
+      <li>عبير السحيمي تملك المسار، وبسام القرني يملك بند الموازنة</li>
+    </ul>
+    <div class="card tint c-navy"><h4>دورك</h4><p class="small mb0">محلل التكلفة في مكتب الاستراتيجية والمالية. نائبة المحافظ د. وجدان الجديد تسأل: كم يكلفنا «واصِف» فعلًا، وماذا لو تضاعف الحجم؟</p></div>
+  </div>
+  <div class="callout warn mt"><b>«واصِف» في المختبرات ليس نموذجًا.</b> برنامج مكتوب السلوك يقلّد حلقة الوكيل، ليحسب الجميع على الأرقام نفسها.</div>
+  <aside class="notes"><p>الهيئة والمدينة والأشخاص افتراضيون. اشرح لماذا لا نستدعي نموذجًا حقيقيًّا: لكي تتطابق أرقام القاعة كلها، ولكي يكون لكل مختبر حل مرجعي. طريقة الحساب نفسها تصلح لأي نموذج.</p><p>كل ما يدخل «واصِف» مصنف «عام»، وسنعود إلى ذلك في الجلسة الخامسة.</p></aside>
+</section>
+
+<section class="slide" id="recap-agent" data-lo="LO1" data-n="6" data-session="1">
+  <div class="kicker">من <span class="en">LDS-EXE-101</span></div>
+  <h2>الوكيل حلقة: يخطط، ويستدعي أداة، ويقرأ النتيجة، ثم يقرر الخطوة التالية</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>خطة</b>ماذا أفعل أولًا</div>
+    <div class="arrow">←</div>
+    <div class="step c-cyan"><b>أداة</b>اقرأ، ابحث، احسب</div>
+    <div class="arrow">←</div>
+    <div class="step c-purple"><b>نتيجة</b>تُضاف إلى السياق</div>
+    <div class="arrow">←</div>
+    <div class="step c-amber"><b>تحقق</b>نجح، أم أعد المحاولة</div>
+  </div>
+  <p class="lead mt">رأيتم في الإحاطة أين يخطئ الوكيل. اليوم نسأل سؤالًا آخر: كم تكلف كل دورة من هذه الحلقة، ومن يدفعها؟</p>
+  <aside class="notes"><p>شريحة تذكير فقط. من لم يحضر LDS-EXE-101 يكفيه أن يفهم أن الوكيل لا يجيب مرة واحدة: يدور حتى ينهي المهمة أو يتوقف.</p></aside>
+</section>
+
+<section class="slide" id="four-token-types" data-lo="LO1" data-n="7" data-session="1">
+  <div class="kicker">ما تحسبه الفاتورة</div>
+  <h2>الفاتورة تعدّ أربعة أنواع من الوحدات النصية، ولكل نوع سعر</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>مدخلات</h4><p class="small mb0">كل ما يُرسل إلى النموذج في الاستدعاء: التعليمات والطلب والسياق.</p></div>
+    <div class="card c-cyan"><h4>مدخلات مخزنة</h4><p class="small mb0">بادئة أُرسلت قبل قليل فيقرؤها المزوّد من ذاكرته بسعر أقل بكثير.</p></div>
+    <div class="card c-coral"><h4>مخرجات</h4><p class="small mb0">ما يكتبه النموذج. سعرها أضعاف سعر المدخلات.</p></div>
+    <div class="card c-purple"><h4>استدلال</h4><p class="small mb0">ما «يفكر» به النموذج قبل الرد. لا يظهر، ويُفوتَر مخرجات.</p></div>
+  </div>
+  <div class="callout note mt"><b>من وثائق المزوّدين.</b> تقول <span class="en">OpenAI</span> إن وحدات الاستدلال لا تظهر عبر الواجهة البرمجية، وتشغل سياق النموذج، وتُفوتَر مخرجات.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">OpenAI API, Reasoning models guide</span>، قُرئ في نوفمبر 2026.</p>
+  <aside class="notes"><p>العدد في الرد: حقل usage في استجابة الواجهة البرمجية يذكر عدد وحدات الاستدلال (output_tokens_details.reasoning_tokens عند OpenAI). أدوات تتبع التنفيذ مثل Langfuse تسجل الأنواع كلها لكل استدعاء.</p><p>المصادر: OpenAI, Reasoning models؛ Langfuse, Token and cost tracking.</p></aside>
+</section>
+
+<section class="slide" id="resent-every-call" data-lo="LO1" data-n="8" data-session="1">
+  <div class="kicker">ما يُعاد إرساله</div>
+  <h2>في كل استدعاء يُرسل السياق كله من جديد، لا الجديد وحده</h2>
+  <table class="t">
+    <tr><th>المقطع</th><th>متى يدخل</th><th>هل يتكرر؟</th></tr>
+    <tr><td>تعليمات النظام وتعريفات الأدوات</td><td>من الاستدعاء الأول</td><td>في كل استدعاء</td></tr>
+    <tr><td>طلب المستخدم</td><td>من الاستدعاء الأول</td><td>في كل استدعاء</td></tr>
+    <tr><td>نتائج الأدوات والنصوص المسترجعة</td><td>بعد أول استدعاء لأداة</td><td>في كل ما بعده</td></tr>
+    <tr><td>مخرجات الاستدعاءات السابقة</td><td>بعد كل استدعاء</td><td>تتراكم</td></tr>
+  </table>
+  <div class="callout tip mt"><b>حتى تعريف الأداة له ثمن.</b> تذكر <span class="en">Anthropic</span> أن وجود أداة واحدة يضيف تعليمات نظام خاصة: 286 وحدة لنموذجي <span class="en">Opus 5.5</span> و<span class="en">Sonnet 5.5</span>.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">Anthropic, Pricing</span>، قسم تسعير استخدام الأدوات، قُرئ في نوفمبر 2026.</p>
+  <aside class="notes"><p>النموذج لا يتذكر شيئًا بين استدعاء وآخر: الحلقة تبني الذاكرة بإعادة إرسال كل شيء. لهذا يكبر الاستدعاء العاشر عن الأول.</p><p>الرقم 286 لحالتي tool_choice «auto» و«none»؛ وتضاف إليه تعريفات الأدوات نفسها. المصدر: Anthropic, Pricing.</p></aside>
+</section>
+
+<section class="slide" id="history-grows" data-lo="LO1" data-n="9" data-session="1">
+  <div class="kicker">مثال من إدارة الاتصال</div>
+  <h2>في مسار الإعلانات يكبر الاستدعاء من 2,992 وحدة إلى 18,367</h2>
+  <div class="bars">
+    <div class="row"><span>1 · خطة</span><div class="bar c-teal" style="--w:16%"></div><span class="val">2,992</span></div>
+    <div class="row"><span>2 · طلب أداة</span><div class="bar c-teal" style="--w:18%"></div><span class="val">3,267</span></div>
+    <div class="row"><span>3 · طلب استرجاع</span><div class="bar c-teal" style="--w:34%"></div><span class="val">6,212</span></div>
+    <div class="row"><span>4 · مسودة عربية</span><div class="bar c-cyan" style="--w:63%"></div><span class="val">11,490</span></div>
+    <div class="row"><span>5 · مسودة إنجليزية</span><div class="bar c-cyan" style="--w:74%"></div><span class="val">13,610</span></div>
+    <div class="row"><span>6 · طلب تحقق</span><div class="bar c-cyan" style="--w:83%"></div><span class="val">15,244</span></div>
+    <div class="row"><span>7 · مراجعة</span><div class="bar c-coral" style="--w:87%"></div><span class="val">15,901</span></div>
+    <div class="row"><span>8 · طلب تحقق</span><div class="bar c-coral" style="--w:98%"></div><span class="val">18,058</span></div>
+    <div class="row"><span>9 · تجميع</span><div class="bar c-purple" style="--w:100%"></div><span class="val">18,367</span></div>
+  </div>
+  <p class="caption">وحدات المدخلات في كل استدعاء من تشغيل واحد لمسار الإعلانات الثنائية اللغة. الأحمر استدعاءا إعادة المحاولة.</p>
+  <aside class="notes"><p>هذا مسار آخر في الهيئة نفسها: إدارة الاتصال تستخدم الحلقة نفسها لكتابة إعلانات عامة بالعربية والإنجليزية، بأسعار وأرقام مختلفة عن «واصِف». المثال من المولّد الاصطناعي للمقرر، لا من نموذج حقيقي.</p><p>اسأل: أين القفزة الأكبر؟ بين 3 و4: النص المسترجع دخل السياق ولن يخرج.</p></aside>
+</section>
+
+<section class="slide" id="billed-vs-asked" data-lo="LO1" data-n="10" data-session="1">
+  <div class="kicker">المفوتَر مقابل المسؤول</div>
+  <h2>طلب من 392 وحدة صار فاتورة من 118,759 وحدة</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">392</div><div class="lbl">وحدة: طلب مالك الإعلان مرة واحدة</div></div>
+    <div class="stat center"><div class="big">118,759</div><div class="lbl">وحدة مفوترة في الاستدعاءات التسعة</div></div>
+    <div class="stat center"><div class="big">303</div><div class="lbl">ضعفًا: المفوتَر إلى طول الطلب</div></div>
+  </div>
+  <div class="callout warn mt"><b>والتقدير الساذج أقل بنحو 48 مرة.</b> سعر الطلب والجواب الأخير وحدهما 0.03 ريال، والتشغيل كلف 1.60 ريال بأسعار هذا المثال.</div>
+  <aside class="notes"><p>الأسعار في هذا المثال: 10 ريالات لكل مليون وحدة مدخلات، و40 للمخرجات. التقدير الساذج: 392 وحدة مدخلات و728 وحدة مخرجات للجواب الأخير. الحساب في ملف المقرر للأرقام.</p><p>لا تكشف أرقام «واصِف»: المختبر سيجدها.</p></aside>
+</section>
+
+<section class="slide" id="retries-multiply" data-lo="LO1" data-n="11" data-session="1">
+  <div class="kicker">إعادة المحاولة</div>
+  <h2>كل محاولة فاشلة تُدفع كاملة، مع السياق كله الذي حملته</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>المسودة لم تجتز التحقق: يعود الوكيل ومعه رسالة الخطأ والسياق كله</li>
+      <li>الاستدعاءات المتأخرة هي الأكبر، فالإعادة تأتي في أغلى نقطة</li>
+      <li>حلقة لا تجتاز التحقق أبدًا تستمر حتى حدٍّ يوقفها، أو لا تتوقف</li>
+    </ul>
+    <div class="stat center"><div class="big">32%</div><div class="lbl">من وحدات تشغيل الإعلانات ذهب إلى استدعاءي إعادة المحاولة</div></div>
+  </div>
+  <div class="callout tip mt"><b>اسأل الفريق.</b> ما الحد الأقصى لإعادة المحاولة؟ ومن يعرف حين يُبلَغ؟</div>
+  <aside class="notes"><p>الرقم: 38,231 وحدة من 118,759 في الاستدعاءين 7 و8 من مثال الإعلانات.</p><p>اربطها بالجلسة الثانية: التشغيل الذي يبلغ الحد ينتهي بلا نتيجة، وتكلفته لا تختفي.</p></aside>
+</section>
+
+<section class="slide" id="prices-fall-spend-rises" data-lo="LO1" data-n="12" data-session="1">
+  <div class="kicker">مفارقة الإنفاق</div>
+  <h2>سعر الوحدة ينخفض بسرعة، والوكلاء يستهلكون وحدات أكثر بكثير</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>السعر لأداء ثابت</h4><p class="small mb0">سعر بلوغ مستوى أداء معين انخفض بين 9 أضعاف و900 ضعف في السنة، بحسب المستوى، وفق <span class="en">Epoch AI</span> (مارس 2025).</p></div>
+    <div class="card c-coral"><h4>الاستهلاك لكل مهمة</h4><p class="small mb0">تقول <span class="en">Anthropic</span> إن الوكلاء يستهلكون عادة نحو 4 أضعاف وحدات المحادثة، والأنظمة متعددة الوكلاء نحو 15 ضعفًا.</p></div>
+  </div>
+  <div class="callout warn mt"><b>النتيجة في الموازنة.</b> سعر أقل لكل وحدة لا يعني فاتورة أقل: الحجم والحلقات قد يرفعان الإنفاق أسرع مما ينخفض السعر.</div>
+  <p class="xsmall muted mt">المصادر: <span class="en">Epoch AI, LLM inference prices have fallen rapidly but unequally across tasks (2025)</span>؛ <span class="en">Anthropic Engineering, How we built our multi-agent research system (2025)</span>.</p>
+  <aside class="notes"><p>الرقمان من مصدرين مختلفين ولا يُطرح أحدهما من الآخر. الأول عن السعر لمستوى أداء ثابت، والثاني عن عدد الوحدات في نوع من الاستخدام. الرسالة: لا تبنِ موازنة على افتراض أن الأسعار ستنخفض.</p><p>المصادر: Epoch AI؛ Anthropic Engineering.</p></aside>
+</section>
+
+<section class="slide" id="energy" data-lo="LO1" data-n="13" data-session="1">
+  <div class="kicker">الطاقة</div>
+  <h2>كل وحدة نصية تُعالَج في مركز بيانات يستهلك كهرباء</h2>
+  <div class="cols cols-2">
+    <div class="stat center"><div class="big">415</div><div class="lbl">تيراواط ساعة: استهلاك مراكز البيانات في العالم عام 2024، نحو 1.5% من الكهرباء</div></div>
+    <div class="stat center"><div class="big">945</div><div class="lbl">تيراواط ساعة تقريبًا: المتوقع عام 2030</div></div>
+  </div>
+  <div class="callout note mt"><b>في تقريرك.</b> الحلقات وإعادة المحاولة والسياق الطويل تستهلك طاقة كما تستهلك مالًا. والتشغيل الفاشل يُبلَّغ عنه، لا يُحذف من الأرقام.</div>
+  <p class="xsmall muted mt">المصدر: <span class="en">IEA, Energy and AI (2025), Executive summary</span>.</p>
+  <aside class="notes"><p>الرقمان لمراكز البيانات كلها، لا للذكاء الاصطناعي وحده. لا تحوّل الوحدات النصية إلى كيلوواط ساعة على الشريحة: لا يوجد معامل منشور موثوق لكل مزوّد.</p><p>المصدر: IEA, Energy and AI, Executive summary.</p></aside>
+</section>
+
+<section class="slide" id="check-billed-tokens" data-lo="LO1" data-n="14" data-session="1">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>من أين جاء الفرق؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO1" data-id="check-billed-tokens-q1">
+    <p class="lead">في مسار الإعلانات، طلب مالك الإعلان 392 وحدة، والسجل يُظهر تسعة استدعاءات بمجموع 118,759 وحدة مفوترة. أي تفسير صحيح؟</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="أ">كل استدعاء يعيد إرسال التعليمات والطلب وما قرأه الوكيل وكتبه</div>
+      <div class="opt" data-why="الفرق بين اللغتين في عدّ الوحدات قائم، لكنه لا يقترب من 303 أضعاف" data-k="ب">المزوّد يعدّ وحدات النص العربي أضعافًا مضاعفة مقارنة بالنص الإنجليزي</div>
+      <div class="opt" data-why="وحدات الاستدلال في هذا التشغيل 6,235 من 118,759، أي نحو 5%" data-k="ج">وحدات الاستدلال المخفية هي معظم ما فُوتر في التشغيل كله</div>
+      <div class="opt" data-why="الفاتورة بالوحدات النصية، ولا رسم ثابت على الاستدعاء في هذا التسعير" data-k="د">الطلب أُرسل مرة واحدة، والباقي رسوم ثابتة على كل استدعاء</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> النموذج لا يتذكر بين استدعاء وآخر، فتبني الحلقة ذاكرتها بإعادة إرسال السياق كله، ويتراكم فيه ما قرأه الوكيل وما كتبه.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: أ. من اختار الاستدلال يحتاج العودة إلى شريحة الأنواع الأربعة: الاستدلال يُفوتَر مخرجات، لكنه ليس الأكبر هنا. أرقامه من مثال الإعلانات، لا من «واصِف».</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-1" data-auto="lab" data-lab="1.1" data-label="المختبر 1.1" data-n="15" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.1 · 55 دقيقة</div><h2>إسناد كل وحدة نصية في تشغيل واحد</h2><p class="lead small">سجل تشغيل واحد لـ«واصِف» من 11 استدعاءً: تسند كل مقطع إلى فئته، وتعلّم إعادة المحاولة، وتسعّر التشغيل.</p><a class="nb" href="../labs/D1_1_tokens.html">D1_1_tokens.html</a></div><ul class="checklist"><li>افتح سجل الوحدات النصية وقائمة الأسعار أ، واقرأ الاستدعاءات الأحد عشر <span class="min">5 د</span></li><li>صنّف كل مقطع في واحدة من الفئات السبع <span class="min">15 د</span></li><li>اجمع الوحدات لكل فئة واحسب حصتها ونسبة المفوتَر إلى مدخلات المستخدم <span class="min">10 د</span></li><li>اجمع وحدات استدعاءات إعادة المحاولة واحسب حصتها <span class="min">5 د</span></li><li>سعّر التشغيل بالقائمة أ، وقارنه بتقدير الطلب والجواب الأخير وحدهما <span class="min">10 د</span></li><li>اكتب ثلاث جمل للقيادة: لماذا يعطي السعر لكل وحدة صورة خاطئة <span class="min">10 د</span></li><li class="stretch">✱ إضافي: أرسل طلبًا حقيقيًّا ببيانات «عامة» إلى نموذج مستضاف يعرض الاستخدام، وقارن المفوتَر بطول رسالتك</li></ul></div>
+  <aside class="notes"><p>بعد عشر دقائق مرّ على الطاولات وانظر إلى عمود category: الخطأ الأشيع خلط نتائج الأدوات بالاسترجاع. القاعدة: ما أعادته أداة الفحص أو التحقق «tool»، وما جاء من المعيار المنشور «retrieval».</p><p>الذكاء الاصطناعي مرشد في المعادلات: يسأل المشارك عن معادلة، ويكتب الأرقام من جدوله. لا تعطِ القاعة أي مجموع قبل نهاية المختبر.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-1" data-label="بعد المختبر 1.1" data-lo="LO1" data-n="16" data-session="1">
+  <div class="kicker">بعد المختبر 1.1</div>
+  <h2>طلب من 204 وحدات فُوتر 1,786 ضعفًا، ونصف الفاتورة إعادة محاولة</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">364,364</div><div class="lbl">وحدة في التشغيل R028، منها 72.6% نتائج أدوات ونصوص مسترجعة</div></div>
+    <div class="stat center"><div class="big">47.4%</div><div class="lbl">من الوحدات في استدعاءات إعادة المحاولة الأربعة</div></div>
+    <div class="stat center"><div class="big">6.47</div><div class="lbl">ريال تكلفة الوحدات، والتقدير الساذج 0.06</div></div>
+  </div>
+  <div class="callout warn mt"><b>ومع 4.5 دقائق مراجعة يصبح التشغيل 19.97 ريالًا.</b> الوحدات أقل من ثلث تكلفته.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_1_tokens.md. اطلب من مشاركين قراءة جملهم الثلاث للقيادة، واختر واحدة لا تذكر «السعر لكل وحدة» إلا لتقول إنه لا يكفي.</p><p>الجسر إلى الجلسة الثانية: هذا تشغيل واحد ناجح. ماذا عن التشغيلات التي فشلت؟</p></aside>
+</section>
+
+<!-- الجلسة 2 -->
+
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="17">
+  <div class="kicker">الجلسة 2</div>
+  <h1>التكلفة لكل مهمة ناجحة توزيع لا رقم</h1>
+  <ul class="bullets outcomes"><li>تعرّف المهمة الناجحة وتحمّلها تكلفة التشغيلات الفاشلة وإعادة المحاولة</li><li>تحسب الوسيط والمئين التسعين والمتوسط المحمَّل بمعادلات جدول البيانات</li><li>تختار الرقم الذي يُرفع إلى القيادة وتشرح ما يخفيه كل رقم آخر</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="run-task-success" data-lo="LO2" data-n="18" data-session="2">
+  <div class="kicker">التعريفات أولًا</div>
+  <h2>قبل أي رقم: ما التشغيل، وما المهمة، وما النجاح</h2>
+  <table class="t">
+    <tr><th>الكلمة</th><th>تعريفها في هذا المقرر</th></tr>
+    <tr><td>تشغيل</td><td>تنفيذ واحد للوكيل على طلب واحد: مقبول، أو مرفوض، أو فاشل بلا نتيجة</td></tr>
+    <tr><td>مهمة</td><td>الطلب نفسه؛ التشغيل الفاشل يُعاد مرة، فللمهمة تشغيل أو اثنان</td></tr>
+    <tr><td>نجاح</td><td>قبِل المراجع البشري الناتج، لا «انتهى التشغيل»</td></tr>
+    <tr><td>تكلفة التشغيل</td><td>الوحدات النصية بسعرها، ودقائق المراجعة بأجرها</td></tr>
+  </table>
+  <div class="callout tip mt"><b>اكتب التعريفات في أعلى التقرير.</b> رقمان من فريقين بتعريفين للنجاح لا يُقارنان.</div>
+  <aside class="notes"><p>اسأل القاعة: في جهاتكم، من يقرر أن المهمة نجحت؟ النظام نفسه، أم الشخص الذي يستلم الناتج؟ هذا المقرر يعتمد الثاني.</p></aside>
+</section>
+
+<section class="slide" id="failed-runs-paid" data-lo="LO2" data-n="19" data-session="2">
+  <div class="kicker">التشغيل الفاشل</div>
+  <h2>التشغيل الذي انتهى بلا نتيجة دُفعت وحداته كلها</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>خطأ أداة</h4><p class="small mb0">توقف مبكرًا: وحداته قليلة، لكنه يُعاد من أوله.</p></div>
+    <div class="card c-amber"><h4>بلوغ حد إعادة المحاولة</h4><p class="small mb0">توقف متأخرًا: أغلى تشغيل في السجل، وبلا نتيجة.</p></div>
+    <div class="card c-purple"><h4>ناتج مرفوض</h4><p class="small mb0">دُفعت وحداته ووقت مراجعته، ولم تنجح المهمة.</p></div>
+  </div>
+  <div class="callout warn mt"><b>حذف هذه الأسطر من الملف يجمّل الرقم.</b> الإبلاغ الأمين يعدّها في التكلفة ويذكر عددها.</div>
+  <aside class="notes"><p>هذا من بنود الاستخدام المسؤول في المقرر: الإبلاغ الأمين عن التشغيلات الفاشلة. اسأل: من رأى تقريرًا عن أداة ذكاء اصطناعي يذكر عدد التشغيلات التي فشلت؟</p></aside>
+</section>
+
+<section class="slide" id="review-is-cost" data-lo="LO2" data-n="20" data-session="2">
+  <div class="kicker">المراجعة البشرية</div>
+  <h2>دقائق المراجعة غالبًا أكبر بند في تكلفة المهمة</h2>
+  <div class="cols cols-2">
+    <div class="stat center"><div class="big">89%</div><div class="lbl">من تكلفة 41 تشغيلًا لمسار الإعلانات كانت وقت مراجعة</div></div>
+    <ul class="bullets">
+      <li>191.5 دقيقة مراجعة بأجر 2.5 ريال للدقيقة</li>
+      <li>في مقابل 61.14 ريالًا للوحدات النصية كلها</li>
+      <li>الأجر المحمَّل: الراتب والبدلات والتكاليف غير المباشرة، لا الراتب وحده</li>
+    </ul>
+  </div>
+  <div class="callout warn mt"><b>من هنا يأتي الإغراء.</b> حذف المراجعة يبدو أكبر توفير، وهو تغيير في الجودة لا توفير.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات: المجموع 539.89 ريالًا، والمراجعة 478.75. أجر الدقيقة افتراض المقرر لهذا المثال.</p><p>هذا هو خطر أن يؤدي ضغط التكلفة إلى إلغاء المراجعة البشرية: سنعود إليه في الروافع.</p></aside>
+</section>
+
+<section class="slide" id="median-and-tail" data-lo="LO2" data-n="21" data-session="2">
+  <div class="kicker">التوزيع</div>
+  <h2>المهمة المعتادة والمهمة السيئة رقمان مختلفان</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">12.83</div><div class="lbl">ريالًا: الوسيط، نصف المهام الناجحة أقل منه</div></div>
+    <div class="stat center"><div class="big">15.50</div><div class="lbl">ريالًا: المئين التسعون، عُشر المهام أعلى منه</div></div>
+    <div class="stat center"><div class="big">29 / 36</div><div class="lbl">مهمة ناجحة: 80.6%</div></div>
+  </div>
+  <div class="callout tip mt"><b>الطرف تصنعه الحلقات.</b> مهمة فشل تشغيلها الأول بعد مراجعات كثيرة ثم نجحت تحمل التشغيلين.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات. الوسيط بالدالة MEDIAN والمئين التسعون بالدالة PERCENTILE.INC، على تكلفة المهام الناجحة وحدها.</p></aside>
+</section>
+
+<section class="slide" id="loaded-mean" data-lo="LO2" data-n="22" data-session="2">
+  <div class="kicker">رقم الموازنة</div>
+  <h2>المتوسط المحمَّل يضع كل ما دُفع على المهام التي نجحت</h2>
+  <table class="t">
+    <tr><th>الرقم</th><th class="num">ريال</th><th>ما يحسبه</th></tr>
+    <tr><td>متوسط الناجحة وحدها</td><td class="num">12.46</td><td>يسقط المهام المرفوضة والفاشلة</td></tr>
+    <tr><td>متوسط التشغيل</td><td class="num">13.17</td><td>539.89 ÷ 41 تشغيلًا</td></tr>
+    <tr class="hl"><td>المتوسط المحمَّل</td><td class="num">18.62</td><td>539.89 ÷ 29 مهمة ناجحة</td></tr>
+  </table>
+  <div class="callout warn mt"><b>قد يقع المتوسط المحمَّل فوق المئين التسعين.</b> يحدث ذلك حين تكون المهام التي لم تنجح كثيرة ومكلفة.</div>
+  <aside class="notes"><p>اسأل: أي رقم تضعه في طلب الموازنة؟ المحمَّل: هو ما تدفعه الجهة مقابل كل نجاح. الوسيط والمئين التسعون يصفان التجربة، ونسبة النجاح تكتب بجانبها دائمًا.</p></aside>
+</section>
+
+<section class="slide" id="formulas" data-lo="LO2" data-n="23" data-session="2">
+  <div class="kicker">المعادلات</div>
+  <h2>ثلاث معادلات تكفي، بشرط أن تُكتب كما هي في التقرير</h2>
+  <pre class="code" data-file="cost.ods"><code>=MEDIAN(D2:D37)
+=PERCENTILE.INC(D2:D37;0.9)
+=SUM(runs!T2:T42)/SUM(C2:C37)</code></pre>
+  <ul class="bullets mt">
+    <li><code>D</code> تكلفة المهام الناجحة، فارغة لغيرها؛ <code>C</code> علامة النجاح؛ <code>T</code> تكلفة كل تشغيل</li>
+    <li><code>PERCENTILE.INC</code> و<code>PERCENTILE.EXC</code> تعطيان رقمين مختلفين: اكتب أيهما استعملت</li>
+  </ul>
+  <aside class="notes"><p>النطاقات هنا لمثال الإعلانات (36 مهمة و41 تشغيلًا). في Excel بإعدادات إنجليزية الفاصل بين المعاملات فاصلة، وفي LibreOffice قد يكون فاصلة منقوطة.</p><p>الذكاء الاصطناعي مرشد في المعادلات: يجوز أن يسأل المشارك مساعدًا عن صيغة، ويبقى مسؤولًا عن أن الرقم من جدوله.</p></aside>
+</section>
+
+<section class="slide" id="hidden-costs" data-lo="LO2" data-n="24" data-session="2">
+  <div class="kicker">التكاليف الخفية</div>
+  <h2>الفاتورة من المزوّد جزء من التكلفة، لا كلها</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>المراجعة</h4><p class="small mb0">دقائق الموظف الذي يقبل الناتج أو يرفضه.</p></div>
+    <div class="card c-cyan"><h4>التكامل</h4><p class="small mb0">ربط الوكيل بأنظمة الجهة، وصيانة الربط.</p></div>
+    <div class="card c-purple"><h4>التقييم</h4><p class="small mb0">مجموعات الاختبار، وإعادة التقييم عند كل تغيير.</p></div>
+    <div class="card c-amber"><h4>المراقبة</h4><p class="small mb0">أداة تتبع التنفيذ، ومن يقرأ التنبيهات.</p></div>
+  </div>
+  <div class="callout tip mt"><b>والمهام التي لم تنجح.</b> من ينجزها يدويًّا بعد رفضها؟ وقته تكلفة على المسار نفسه.</div>
+  <aside class="notes"><p>في المختبرات نحسب الوحدات والمراجعة فقط. في المشروع الختامي يظهر التقييم والمراقبة والتكامل بنودًا ثابتة في الموازنة.</p></aside>
+</section>
+
+<section class="slide" id="build-vs-run" data-lo="LO2" data-n="25" data-session="2">
+  <div class="kicker">موازنتان</div>
+  <h2>البناء يُدفع مرة، والتشغيل يُدفع كل شهر ويكبر مع الحجم</h2>
+  <table class="t">
+    <tr><th></th><th>موازنة البناء</th><th>موازنة التشغيل</th></tr>
+    <tr><td>أمثلة</td><td>التكامل، وإعداد مجموعات الاختبار، والتدريب</td><td>الوحدات النصية، والمراجعة، والمراقبة، والتقييم الدوري</td></tr>
+    <tr><td>يتغير مع</td><td>النطاق</td><td>الحجم ونسبة النجاح والحلقات</td></tr>
+    <tr><td>يُقاس بـ</td><td>إنجاز المشروع</td><td>التكلفة لكل مهمة ناجحة</td></tr>
+  </table>
+  <div class="callout warn mt"><b>الخطأ الشائع.</b> موازنة تجربة صغيرة تُعتمد ثم يُكتشف أن التشغيل الكامل عشرة أضعافها.</div>
+  <aside class="notes"><p>دراسة الجدوى والتكلفة الإجمالية للملكية في LDS-ADV-201؛ هنا نكتفي بالفصل بين البندين.</p></aside>
+</section>
+
+<section class="slide" id="check-budget-figure" data-lo="LO2" data-n="26" data-session="2">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>أي رقم يدخل الموازنة؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO2" data-id="check-budget-figure-q1">
+    <p class="lead">مسار الإعلانات: 41 تشغيلًا على 36 مهمة، نجحت منها 29، والمجموع 539.89 ريالًا شاملًا المراجعة. يسأل بند الموازنة: كم نضع لكل إعلان ناجح؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يقسم على التشغيلات، فيعامل التشغيل الفاشل والمرفوض كأنه إعلان ناجح" data-k="أ">13.17 ريالًا: المجموع مقسومًا على التشغيلات الـ41</div>
+      <div class="opt" data-why="الوسيط يصف المهمة المعتادة، ولا يحمل تكلفة المهام التي لم تنجح" data-k="ب">12.83 ريالًا: وسيط تكلفة المهام الناجحة</div>
+      <div class="opt" data-ok data-k="ج">18.62 ريالًا: المجموع ÷ المهام الناجحة الـ29</div>
+      <div class="opt" data-why="يسقط المهام المرفوضة والفاشلة، وهي مدفوعة كاملة" data-k="د">12.46 ريالًا: متوسط تكلفة المهام الناجحة وحدها</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> الموازنة تدفع كل التشغيلات، ناجحها وفاشلها، والنتيجة التي تشتريها هي المهام الناجحة.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ج. الأرقام من مثال الإعلانات. من اختار الوسيط على حق في أنه يصف التجربة المعتادة، لكنه ليس رقم الموازنة.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-2" data-auto="lab" data-lab="1.2" data-label="المختبر 1.2" data-n="27" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.2 · 80 دقيقة</div><h2>من 50 تشغيلًا إلى توزيع للتكلفة</h2><p class="lead small">50 تشغيلًا موسومًا على 45 طلب نشر: تكلفة كل تشغيل وكل مهمة بمعادلات، ثم الوسيط والمئين التسعون والمتوسط المحمَّل.</p><a class="nb" href="../labs/D1_2_distribution.html">D1_2_distribution.html</a></div><ul class="checklist"><li>افتح ملف التشغيلات والأسعار وأجر المراجعة، وتحقق من التصنيف <span class="min">5 د</span></li><li>احسب تكلفة الوحدات النصية لكل تشغيل بمعادلة <span class="min">15 د</span></li><li>أضف تكلفة المراجعة واحسب تكلفة كل تشغيل <span class="min">10 د</span></li><li>اجمع تكلفة كل مهمة وعلّم المهام الناجحة <span class="min">15 د</span></li><li>احسب الوسيط والمئين التسعين والمتوسط المحمَّل بمعادلاتها <span class="min">15 د</span></li><li>قارنها بمتوسط التشغيل ومتوسط الناجحة وحدها، واختر ما يُرفع إلى القيادة <span class="min">10 د</span></li><li>اجعل الحجم ونسبة النجاح خليتي مدخلات، وأعد الحساب عند 70% <span class="min">10 د</span></li><li class="stretch">✱ إضافي: اكتب سبب ارتفاع تكلفة كل مهمة من المهام الناجحة الخمس الأغلى</li></ul></div>
+  <aside class="notes"><p>راقب الخطوة 4: من يعدّ المهمة المعادة مهمتين يخطئ في نسبة النجاح. والخطوة 2: من يحذف التشغيلات الفاشلة لأنها «بلا نتيجة».</p><p>الخطوة 7 تمرين على ما سيطلبه المقيِّم في المراجعة: تغيير نسبة النجاح وإعادة الحساب في دقيقة.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-2" data-label="بعد المختبر 1.2" data-lo="LO2" data-n="28" data-session="2">
+  <div class="kicker">بعد المختبر 1.2</div>
+  <h2>الوسيط 19.23 ريالًا، لكن الهيئة تدفع 30.21 ريالًا لكل حزمة مقبولة</h2>
+  <table class="t">
+    <tr><th>الرقم</th><th class="num">ريال</th></tr>
+    <tr><td>الوسيط</td><td class="num">19.23</td></tr>
+    <tr><td>المئين التسعون</td><td class="num">28.18</td></tr>
+    <tr class="hl"><td>المتوسط المحمَّل (35 ناجحة من 45، 77.8%)</td><td class="num">30.21</td></tr>
+    <tr><td>متوسط التشغيل</td><td class="num">21.15</td></tr>
+    <tr><td>متوسط الناجحة وحدها</td><td class="num">20.43</td></tr>
+  </table>
+  <div class="callout warn mt"><b>المراجعة 71% من المجموع.</b> 250 دقيقة من أصل 1,057.50 ريالًا.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_2_distribution.md. اسأل من أخرج رقمًا آخر، وابحث معه عن السبب: غالبًا تشغيلات فاشلة محذوفة أو PERCENTILE.EXC.</p><p>عند نسبة نجاح 70%: 33.57 ريالًا لكل نجاح.</p></aside>
+</section>
+
+<!-- الجلسة 3 -->
+
+<section class="slide section" id="s3" data-auto="section" data-session="3" data-n="29">
+  <div class="kicker">الجلسة 3</div>
+  <h1>ثلاث طرق للدفع عند ثلاثة أحجام</h1>
+  <ul class="bullets outcomes"><li>تحسب تكلفة السعة المخصصة ونسبة استغلالها عند حجم معين</li><li>تجد أحجام التعادل بين نظامين للتسعير</li><li>تقرأ تعريف «النتيجة» في عرض مورِّد قبل مقارنة سعره</li></ul>
+  <div class="sess-no">03</div>
+</section>
+
+<section class="slide" id="ways-to-pay" data-lo="LO3" data-n="30" data-session="3">
+  <div class="kicker">نظم التسعير</div>
+  <h2>المورِّدون يبيعون الشيء نفسه بخمس طرق للعدّ</h2>
+  <table class="t">
+    <tr><th>الطريقة</th><th>تدفع مقابل</th><th>يرتفع الإنفاق حين</th></tr>
+    <tr><td>الوحدات النصية</td><td>كل وحدة مدخلات ومخرجات</td><td>يكبر الحجم أو تطول الحلقات</td></tr>
+    <tr><td>السعة المخصصة</td><td>وحدات سعة بالساعة</td><td>تشتري سعة أكثر مما تستعمل</td></tr>
+    <tr><td>المستخدم</td><td>مقعد لكل موظف في الشهر</td><td>يزيد عدد المقاعد غير المستعملة</td></tr>
+    <tr><td>الأرصدة</td><td>رصيد يُخصم بحسب الاستعمال</td><td>تتغير قيمة الرصيد لكل عملية</td></tr>
+    <tr><td>النتيجة</td><td>كل «نتيجة» كما يعرّفها المورِّد</td><td>يختلف تعريفه عن تعريفك للنجاح</td></tr>
+  </table>
+  <div class="callout note mt"><b>والالتزام يتقاطع معها كلها.</b> خصم مقابل حد أدنى أو مدة، يُدفع ولو انخفض الحجم.</div>
+  <aside class="notes"><p>الطرق الخمس لا تستبعد بعضها: عقد واحد قد يجمع مقاعد ورسم منصة وسعرًا لكل نتيجة.</p></aside>
+</section>
+
+<section class="slide" id="annex-token-prices" data-lo="LO3" data-label="ملحق الأسعار 1" data-n="31" data-session="3">
+  <div class="kicker">ملحق مؤرخ: نوفمبر 2026</div>
+  <h2>أسعار الوحدات النصية المنشورة، بالدولار لكل مليون وحدة</h2>
+  <table class="t small">
+    <tr><th>النموذج</th><th class="num">مدخلات</th><th class="num">مدخلات مخزنة</th><th class="num">مخرجات</th></tr>
+    <tr><td><span class="en">Claude Opus 5.5</span></td><td class="num">4</td><td class="num">0.20</td><td class="num">20</td></tr>
+    <tr><td><span class="en">Claude Sonnet 5.5</span></td><td class="num">2</td><td class="num">0.10</td><td class="num">10</td></tr>
+    <tr><td><span class="en">Claude Haiku 5.5</span> (طلب حتى 100,000 وحدة)</td><td class="num">0.10</td><td class="num">0.01</td><td class="num">0.50</td></tr>
+    <tr><td><span class="en">gemini-3.8-flash</span> حتى 31 ديسمبر 2026</td><td class="num">0.75</td><td class="num">0.075</td><td class="num">3.75</td></tr>
+    <tr><td><span class="en">gemini-3.8-flash</span> من 1 يناير 2027</td><td class="num">1.50</td><td class="num">0.15</td><td class="num">7.50</td></tr>
+  </table>
+  <p class="small mt">لدى المزوّدين كليهما خصم 50% على المعالجة الحزمية غير الفورية. وسعر المخرجات عند <span class="en">Google</span> يشمل وحدات الاستدلال.</p>
+  <p class="xsmall muted">المصادر: <span class="en">Anthropic, Pricing</span>؛ <span class="en">Google AI Studio, Gemini API pricing</span> (الطبقة العادية). قُرئتا في 18 نوفمبر 2026، وتتغيران.</p>
+  <aside class="notes"><p>هذا ملحق للقراءة، لا للحساب: أسعار المختبرات من قوائم المقرر الاصطناعية بالريال، حتى لا تتقادم المختبرات حين تتغير الأسعار. أعد قراءة الصفحتين قبل كل دفعة.</p><p>لاحظ السطرين الأخيرين: سعر النموذج نفسه يتضاعف في تاريخ معلن مسبقًا. التخزين المؤقت عند Google له رسم تخزين بالساعة أيضًا.</p><p>المصادر: Anthropic, Pricing؛ Google AI Studio, Gemini API pricing.</p></aside>
+</section>
+
+<section class="slide" id="annex-other-schemes" data-lo="LO3" data-label="ملحق الأسعار 2" data-n="32" data-session="3">
+  <div class="kicker">ملحق مؤرخ: نوفمبر 2026</div>
+  <h2>المقاعد والنتائج والسعة كما تنشرها صفحات المورِّدين</h2>
+  <div class="cols cols-2">
+    <div class="card c-purple"><h4>مقاعد ونتائج: <span class="en">Intercom</span></h4><p class="small mb0">وكيلها <span class="en">Fin</span> بـ0.99 دولار لكل «نتيجة»، فوق مقاعد شهرية بين 29 و132 دولارًا للمقعد بحسب الخطة (19 لخطة <span class="en">Essential</span> بخصم العملاء الجدد).</p></div>
+    <div class="card c-cyan"><h4>سعة: <span class="en">Microsoft Foundry</span></h4><p class="small mb0">النشر المخصص يُفوتَر بالساعة لكل وحدة سعة، أيًّا كان عدد الوحدات النصية المستهلكة، مع خصم مقابل حجز شهر أو سنة.</p></div>
+  </div>
+  <div class="callout warn mt"><b>اقرأ تعريف «النتيجة».</b> عند <span class="en">Intercom</span> تُحتسب حين يؤكد العميل أن مشكلته حُلت، أو حين لا يطلب مساعدة أخرى بعد الرد، أو حين ينهي الوكيل إجراءً بما فيه التحويل إلى موظف.</div>
+  <p class="xsmall muted mt">المصادر: <span class="en">Intercom, Pricing</span>؛ <span class="en">Microsoft Learn, Provisioned throughput for Foundry Models</span>. قُرئتا في 18 نوفمبر 2026.</p>
+  <aside class="notes"><p>Intercom تعرض سعر خطة Essential مخفضًا للعملاء الجدد. اسأل القاعة: عميل لم يكتب مرة أخرى بعد الرد، هل حُلت مشكلته؟ ربما يئس. هذا هو الفرق بين «نتيجة» المورِّد ونجاح جهتك.</p><p>المصادر: Intercom, Pricing؛ Microsoft Learn, Provisioned throughput.</p></aside>
+</section>
+
+<section class="slide" id="capacity-utilisation" data-lo="LO3" data-n="33" data-session="3">
+  <div class="kicker">السعة والاستغلال</div>
+  <h2>السعة المخصصة تُدفع كل ساعة، فتكلفتها لكل طلب تتبع نسبة استغلالها</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>الطلبات تأتي في ساعات العمل، والسعة تُدفع 730 ساعة في الشهر</li>
+      <li>الوحدات تُحسب لأعلى دقيقة، لا للمتوسط</li>
+      <li>الاستغلال = ما استُعمل ÷ ما تستطيع الوحدات معالجته في كل الساعات المدفوعة</li>
+    </ul>
+    <div class="card tint c-navy"><h4>مثال الإعلانات</h4><p class="small mb0">وحدة سعة بـ9,000 ريال في الشهر تغطي 12,000 إعلان في ذروة ساعات العمل. عند 2,000 إعلان: تُستعمل 16.7% من هذه التغطية، والإعلان الواحد يحمل 4.50 ريالات من السعة. عند 8,000: 66.7%، و1.13 ريال.</p></div>
+  </div>
+  <aside class="notes"><p>الأرقام من مثال المقرر لإدارة الاتصال، لا من مورِّد حقيقي. الحساب: 9,000 ÷ 2,000 = 4.50؛ 9,000 ÷ 8,000 = 1.125.</p><p>فرّق بين الرقمين: نسبة ما يُستعمل من تغطية الوحدة (16.7% هنا) شيء، والاستغلال على كل الساعات المدفوعة شيء أصغر منه بكثير، لأن التغطية نفسها محسوبة لساعات العمل وبهامش للذروة: الاستغلال = نسبة التغطية المستعملة × (دقائق العمل ÷ كل دقائق الشهر) ÷ عامل الذروة. المختبر 1.3 يطلب الثاني، ومعادلته في صفحة المختبر.</p><p>الرسالة الثابتة في هذا المقرر: نسبة الاستغلال هي التي تحدد تكلفة السعة.</p></aside>
+</section>
+
+<section class="slide" id="breakeven" data-lo="LO3" data-n="34" data-session="3">
+  <div class="kicker">نقطة التعادل</div>
+  <h2>التعادل هو الحجم الذي يتساوى عنده نظامان، ويتغير الخيار بعده</h2>
+  <table class="t">
+    <tr><th>مثال الإعلانات</th><th>التكلفة الشهرية</th></tr>
+    <tr><td>الوحدات النصية</td><td>1.70 ريال × الحجم</td></tr>
+    <tr><td>النتيجة</td><td>2,000 رسم منصة + 1.20 × 0.97 حزمة مسلَّمة لكل طلب × الحجم</td></tr>
+    <tr><td>السعة</td><td>9,000 لكل وحدة تغطي 12,000 طلب</td></tr>
+  </table>
+  <div class="flow mt">
+    <div class="step c-teal"><b>تحت 3,731</b>الوحدات النصية أرخص من النتيجة</div>
+    <div class="arrow">←</div>
+    <div class="step c-cyan"><b>من 3,731 إلى 6,014</b>النتيجة أرخص الثلاثة</div>
+    <div class="arrow">←</div>
+    <div class="step c-purple"><b>من 6,014 إلى 12,000</b>السعة أرخص حتى تمتلئ الوحدة</div>
+  </div>
+  <aside class="notes"><p>الحساب: 2,000 ÷ (1.70 − 1.164) = 3,731؛ و(9,000 − 2,000) ÷ 1.164 = 6,014؛ والسعة تعادل الوحدات النصية عند 9,000 ÷ 1.70 = 5,294، لكن النتيجة أرخص منهما هناك. والسعة درجات: حين يتجاوز الحجم 12,000 تُشترى وحدة ثانية فتقفز التكلفة، ويُعاد حساب التعادل.</p></aside>
+</section>
+
+<section class="slide" id="choice-by-volume" data-lo="LO3" data-n="35" data-session="3">
+  <div class="kicker">الخيار يتبع الحجم</div>
+  <h2>الخيار الصحيح عند حجم اليوم قد يكون الخطأ عند حجم السنة القادمة</h2>
+  <table class="t">
+    <tr><th>الحجم الشهري</th><th class="num">الوحدات النصية</th><th class="num">النتيجة</th><th class="num">السعة</th><th>الخيار</th></tr>
+    <tr><td>2,000</td><td class="num">3,400</td><td class="num">4,328</td><td class="num">9,000</td><td>الوحدات النصية</td></tr>
+    <tr><td>8,000</td><td class="num">13,600</td><td class="num">11,312</td><td class="num">9,000</td><td>السعة</td></tr>
+  </table>
+  <div class="callout tip mt"><b>اكتب لكل خيار ما يحدث لو أخطأ التقدير.</b> السعة عند 8,000 تبقى 9,000 ريال لو بقي الحجم 2,000.</div>
+  <aside class="notes"><p>أرقام مثال الإعلانات. اسأل: من في جهته عقد اختير على حجم التجربة؟ ومن اختار سعة على حجم لم يأتِ؟</p></aside>
+</section>
+
+<section class="slide" id="commitments" data-lo="LO3" data-n="36" data-session="3">
+  <div class="kicker">الالتزامات</div>
+  <h2>الخصم مقابل الالتزام يشتري سعرًا أقل، ويبيع المرونة</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>ما تكسبه</h4><p class="small mb0">سعر أقل لكل وحدة أو ساعة، وفاتورة متوقعة يسهل وضعها في الموازنة.</p></div>
+    <div class="card c-coral"><h4>ما تخاطر به</h4><p class="small mb0">حد أدنى يُدفع لو انخفض الحجم، أو تغير النموذج، أو ظهر سعر أقل في السوق.</p></div>
+  </div>
+  <div class="callout note mt"><b>سؤال قبل التوقيع.</b> ما أقل حجم شهري تتوقعه بثقة؟ التزم عنده، لا عند الحجم المأمول.</div>
+  <aside class="notes"><p>أسعار هذا السوق تتغير بسرعة، كما رأينا في سطري gemini-3.8-flash. الالتزام الطويل يثبّت سعرًا قد يصبح مرتفعًا. التفاوض على العقود موضوع مقرر آخر في المسار.</p></aside>
+</section>
+
+<section class="slide" id="check-pricing" data-lo="LO3" data-n="37" data-session="3">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>أي خيار أرخص عند 8,000؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-pricing-q1">
+    <p class="lead">مسار الإعلانات: 1.70 ريال للطلب بالوحدات النصية؛ أو 1.20 ريال لكل حزمة مسلَّمة (0.97 لكل طلب) ورسم منصة 2,000 ريال؛ أو وحدة سعة بـ9,000 ريال تغطي 12,000 طلب. أي خيار أرخص عند 8,000 طلب في الشهر؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يضرب السعر في الحجم وينسى رسم المنصة والحزم المسلَّمة؛ المجموع الصحيح 11,312" data-k="أ">النتيجة: 9,600 ريال في الشهر</div>
+      <div class="opt" data-ok data-k="ب">السعة: 9,000 ريال في الشهر</div>
+      <div class="opt" data-why="الوحدات النصية 13,600 عند هذا الحجم، أعلى من الخيارين الآخرين" data-k="ج">الوحدات النصية: 13,600 ريال في الشهر</div>
+      <div class="opt" data-why="هذا رقم النتيجة الصحيح، لكنه أعلى من السعة بـ2,312 ريالًا" data-k="د">النتيجة: 11,312 ريالًا في الشهر</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> وحدة واحدة تكفي 8,000 طلب، فتبقى السعة 9,000، والنتيجة 2,000 + 1.164 × 8,000 = 11,312.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ب. الأرقام من مثال الإعلانات. من اختار «9,600» نسي رسم المنصة، وهذا هو الخطأ الأشيع في عروض التسعير بالنتيجة.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-3" data-auto="lab" data-lab="1.3" data-label="المختبر 1.3" data-n="38" data-session="3">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.3 · 75 دقيقة</div><h2>تسعير مسار عمل واحد بثلاث طرق</h2><p class="lead small">ملف استخدام وثلاث قوائم أسعار (أ بالوحدات، ب بالسعة، ج بالحزمة المسلَّمة) عند 1,500 و6,000 و24,000 طلب في الشهر.</p><a class="nb" href="../labs/D1_3_pricing.html">D1_3_pricing.html</a></div><ul class="checklist"><li>اقرأ القوائم الثلاث وملف الاستخدام والافتراضات <span class="min">10 د</span></li><li>احسب تكلفة الخيار أ الشهرية عند الأحجام الثلاثة <span class="min">10 د</span></li><li>احسب للخيار ب عدد الوحدات والتكلفة الشهرية ونسبة الاستغلال <span class="min">15 د</span></li><li>احسب للخيار ج الحزم المسلَّمة والتكلفة الشهرية <span class="min">10 د</span></li><li>احسب أحجام التعادل بين أ وج، وبين أ وب، وبين ج وب <span class="min">15 د</span></li><li>اختر خيارًا لكل حجم، مع التكلفة لكل حزمة مقبولة ومخاطرة واحدة <span class="min">15 د</span></li><li class="stretch">✱ إضافي: أعد الحساب بخصم 20% على ب مقابل التزام 12 شهرًا</li></ul></div>
+  <aside class="notes"><p>قل قبل البدء: الأسعار في القوائم الثلاث من تصميم المقرر، والملحق الحقيقي على الشرائح للقراءة. لا يستبدل أحد الأسعار.</p><p>راقب الخطوة 3: من يضرب في ساعات العمل بدل 730 ساعة، ومن ينسى عامل الذروة. وراقب الخطوة 4: عمود note في القائمة ج يقول إن الحزمة تُحتسب حين تُسلَّم.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-3" data-label="بعد المختبر 1.3" data-lo="LO3" data-n="39" data-session="3">
+  <div class="kicker">بعد المختبر 1.3</div>
+  <h2>الخيار يتغير مرتين بين 1,500 و24,000 طلب</h2>
+  <table class="t">
+    <tr><th>الحجم</th><th class="num">أ</th><th class="num">ب</th><th class="num">ج</th><th>الخيار</th></tr>
+    <tr><td>1,500</td><td class="num">8,640</td><td class="num">36,500</td><td class="num">11,089</td><td>أ</td></tr>
+    <tr><td>6,000</td><td class="num">34,560</td><td class="num">36,500</td><td class="num">32,358</td><td>ج</td></tr>
+    <tr><td>24,000</td><td class="num">138,240</td><td class="num">109,500</td><td class="num">117,430</td><td>ب</td></tr>
+  </table>
+  <div class="callout warn mt"><b>ج يكلف 5.80 ريال لكل حزمة مقبولة، لا 4.75.</b> واستغلال ب عند 24,000 طلب 10.84% فقط.</div>
+  <aside class="notes"><p>الأرقام من labs/solutions/D1_3_pricing.md. التعادل: أ وج عند 3,869؛ أ وب بوحدة واحدة عند 6,337؛ ج وب بوحدة عند 6,876؛ وبثلاث وحدات 19,010 و22,322.</p><p>لكل حزمة مقبولة شاملة المراجعة تتقارب الخيارات (بين 25.11 و26.97 عند الحجمين الأكبرين، مقابل 26.58 إلى 49.37 عند 1,500): المراجعة 15.90 ريالًا لكل طلب في كل خيار.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-lo="LO1 LO2 LO3" data-n="40" data-session="3">
+  <div class="kicker">الخلاصة</div>
+  <h2>ثلاثة أشياء تأخذها من اليوم الأول</h2>
+  <ol class="bullets">
+    <li><b>المفوتَر ليس المسؤول:</b> الحلقة تعيد إرسال السياق، والتكلفة تُحسب للتشغيل كله</li>
+    <li><b>التكلفة لكل مهمة ناجحة توزيع:</b> الوسيط والمئين التسعون والمتوسط المحمَّل، ونسبة النجاح بجانبها</li>
+    <li><b>الخيار يتبع الحجم:</b> لكل نظام تسعير حجم تعادل، والسعة تتبع الاستغلال</li>
+  </ol>
+  <aside class="notes"><p>اطلب من كل مشارك أن يكتب الرقم الذي سيرفعه لو سُئل غدًا عن «واصِف»، والتعريف الذي بُني عليه.</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-label="التالي" data-n="41" data-session="3">
+  <div class="kicker">قبل اليوم الثاني</div>
+  <h1>عشرون دقيقة على صفحة التدريب</h1>
+  <p class="lead">حلّ أسئلة الحساب اليدوي في صفحة التدريب: غدًا حساب تكلفة مراقب على سجل مطبوع، دون ذكاء اصطناعي. واحتفظ بجداولك الثلاثة: يعود إليها مختبر الروافع والمشروع الختامي.</p>
+  <aside class="notes"><p>صفحة التدريب فيها أسئلة على أمثلة موازية، لا على ملفات المختبرات. الحساب المراقب في اليوم الثاني ساعة كاملة: خمس دقائق تعليمات، وخمسون للحساب، وخمس للتسليم.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-18T02:09:15Z","version":"2027.1.0","commit":"21dca5c"},"course":{"id":"lds-exe-202","code":"LDS-EXE-202","title":"اقتصاديات الذكاء الاصطناعي والوكلاء","track":"executives","lang":"ar","dir":"rtl","url":"https://sdaiaacademy.github.io/lds-exe-202/","repo":"SDAIAAcademy/lds-exe-202","home":"../index.html"},"deck":{"id":"day1","kind":"day","day":1,"label":"اليوم 1","title":"من الفاتورة إلى تكلفة الوحدة","prev":null,"next":"day2.html","md":"day1.md","alt":{}},"sessions":[{"n":1,"label":"الجلسة 1","title":"الوحدات المفوترة ليست ما سأله المستخدم","slide":"s1","outcomes":["تميّز بين أنواع الوحدات النصية الأربعة في فاتورة نموذج مستضاف","تتتبع ما يُعاد إرساله في كل استدعاء من حلقة وكيل","تشرح لماذا لا يكفي السعر لكل وحدة نصية لتقدير تكلفة مسار عمل"],"minutes":100,"lab":{"id":"1.1","title":"إسناد كل وحدة نصية في تشغيل واحد","minutes":55,"href":"../labs/D1_1_tokens.html"}},{"n":2,"label":"الجلسة 2","title":"التكلفة لكل مهمة ناجحة توزيع لا رقم","slide":"s2","outcomes":["تعرّف المهمة الناجحة وتحمّلها تكلفة التشغيلات الفاشلة وإعادة المحاولة","تحسب الوسيط والمئين التسعين والمتوسط المحمَّل بمعادلات جدول البيانات","تختار الرقم الذي يُرفع إلى القيادة وتشرح ما يخفيه كل رقم آخر"],"minutes":135,"lab":{"id":"1.2","title":"من 50 تشغيلًا إلى توزيع للتكلفة","minutes":80,"href":"../labs/D1_2_distribution.html"}},{"n":3,"label":"الجلسة 3","title":"ثلاث طرق للدفع عند ثلاثة أحجام","slide":"s3","outcomes":["تحسب تكلفة السعة المخصصة ونسبة استغلالها عند حجم معين","تجد أحجام التعادل بين نظامين للتسعير","تقرأ تعريف «النتيجة» في عرض مورِّد قبل مقارنة سعره"],"minutes":130,"lab":{"id":"1.3","title":"تسعير مسار عمل واحد بثلاث طرق","minutes":75,"href":"../labs/D1_3_pricing.html"}}],"slides":[{"id":"title","n":1,"title":"من الفاتورة إلى تكلفة الوحدة","kind":"title","session":0,"hash":"eef540f6","md":"#### [day1#title] من الفاتورة إلى تكلفة الوحدة\n\n*أكاديمية سدايا · اقتصاديات الذكاء الاصطناعي والوكلاء*\n\nاليوم 1: يوم كامل بثلاث جلسات: سجل تشغيل واحد، ثم 50 تشغيلًا موسومًا، ثم ثلاث قوائم أسعار عند ثلاثة أحجام\n\nمسار التنفيذيين والقادة · يومان تدريبيان + يوم للمشروع الختامي · 3 جلسات · 3 مختبرات · LDS-EXE-202","notes":"رحّب بالقاعة، وعرّف بنفسك في جملة. ثم اسأل: من في القاعة يعرف كم كلف آخر طلب أرسله إلى مساعد ذكاء اصطناعي في جهته؟ ومن يعرف كم كلفت المهمة التي أنجزها؟ الفرق بين السؤالين هو موضوع اليومين.\n\nاليوم الأول ثلاث جلسات: سجل تشغيل واحد، ثم 50 تشغيلًا، ثم ثلاث قوائم أسعار. كل مختبر في جدول بيانات، ولا كود.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"من الفاتورة إلى تكلفة الوحدة","kind":"content","session":0,"hash":"eaa6510d","md":"#### [day1#agenda] من الفاتورة إلى تكلفة الوحدة\n\n*اليوم*\n\n- **الجلسة 1 · الوحدات المفوترة ليست ما سأله المستخدم**: وحدات المدخلات والمخرجات والمخزنة مؤقتًا والاستدلال، ولماذا يتحول طلب واحد إلى استدعاءات كثيرة، وانخفاض سعر الوحدة مع ارتفاع الإنفاق\n- **الجلسة 2 · التكلفة لكل مهمة ناجحة توزيع لا رقم**: التشغيل والمهمة والنجاح، والتشغيلات الفاشلة التي تُدفع تكلفتها، ووقت المراجعة البشرية، والوسيط والطرف، والتكاليف الخفية، وموازنة البناء مقابل موازنة التشغيل\n- **الجلسة 3 · ثلاث طرق للدفع عند ثلاثة أحجام**: التسعير بالوحدات النصية وبالسعة ونسبة استغلالها وبالمستخدم وبالأرصدة وبالنتيجة وبالالتزام، ونقطة التعادل، وملحق أسعار مؤرخ","notes":"الخيط: من الفاتورة إلى تكلفة الوحدة. كل جلسة تنتهي بنقطة تحقق ثم مختبر، والأرقام التي تخرج من المختبرات تعود في اليوم الثاني وفي المشروع الختامي.","minutes":null,"lo":[]},{"id":"setup-check","n":3,"title":"جدول بيانات مفتوح، وملف واحد يُقرأ بالعربية","kind":"content","session":0,"hash":"3220176a","md":"#### [day1#setup-check] جدول بيانات مفتوح، وملف واحد يُقرأ بالعربية\n\n*قبل أن نبدأ*\n\n- **جدول بيانات:** LibreOffice Calc أو Microsoft Excel\n- **صفحة المقرر:** المختبرات وملفاتها من صفحة كل مختبر\n- **متصفح:** لمختبر اليوم الثاني\n- لا حساب ولا مفتاح ولا تثبيت\n\n- **الاختبار: دقيقة واحدة.** نزّل `runs_50.csv` من صفحة المختبر 1.2 وافتحه. إن ظهر عمود `dataset` بالعربية سليمًا، فالجهاز جاهز.\n\n> **إن ظهرت رموز غريبة.** افتح الملف من داخل البرنامج واختر الترميز UTF-8.","notes":"الملفات محفوظة بترميز UTF-8 مع علامة في أولها يقرؤها Excel. إن ظهرت رموز غير مقروءة في LibreOffice، فالحل نافذة الاستيراد: Character set ثم UTF-8، والفاصل الفاصلة.\n\nمن لا يملك جدول بيانات على جهازه يستطيع استعمال نسخة الويب من Excel بحساب جهته، أو LibreOffice المحمولة.","minutes":null,"lo":[]},{"id":"s1","n":4,"title":"الوحدات المفوترة ليست ما سأله المستخدم","kind":"section","session":1,"hash":"274894e4","md":"#### [day1#s1] الوحدات المفوترة ليست ما سأله المستخدم\n\n*الجلسة 1*\n\n- تميّز بين أنواع الوحدات النصية الأربعة في فاتورة نموذج مستضاف\n- تتتبع ما يُعاد إرساله في كل استدعاء من حلقة وكيل\n- تشرح لماذا لا يكفي السعر لكل وحدة نصية لتقدير تكلفة مسار عمل","notes":"","minutes":null,"lo":["LO1"]},{"id":"case-intro","n":5,"title":"«واصِف» يُعدّ حزم النشر لمكتب البيانات المفتوحة في هيئة تطوير مدينة الأقحوان","kind":"content","session":1,"hash":"8d01178b","md":"#### [day1#case-intro] «واصِف» يُعدّ حزم النشر لمكتب البيانات المفتوحة في هيئة تطوير مدينة الأقحوان\n\n*دراسة الحالة*\n\n- مالك البيانات يطلب نشر مجموعة بيانات صُنفت «عامة»\n- «واصِف» يكتب الوصف بالعربية والإنجليزية والبيانات الوصفية، ويتحقق منها بأداة\n- أمينة البيانات هتون الشدي أو أحد فريقها يقبل الحزمة أو يرفضها\n- عبير السحيمي تملك المسار، وبسام القرني يملك بند الموازنة\n\n- **دورك.** محلل التكلفة في مكتب الاستراتيجية والمالية. نائبة المحافظ د. وجدان الجديد تسأل: كم يكلفنا «واصِف» فعلًا، وماذا لو تضاعف الحجم؟\n\n> **«واصِف» في المختبرات ليس نموذجًا.** برنامج مكتوب السلوك يقلّد حلقة الوكيل، ليحسب الجميع على الأرقام نفسها.","notes":"الهيئة والمدينة والأشخاص افتراضيون. اشرح لماذا لا نستدعي نموذجًا حقيقيًّا: لكي تتطابق أرقام القاعة كلها، ولكي يكون لكل مختبر حل مرجعي. طريقة الحساب نفسها تصلح لأي نموذج.\n\nكل ما يدخل «واصِف» مصنف «عام»، وسنعود إلى ذلك في الجلسة الخامسة.","minutes":null,"lo":["LO1"]},{"id":"recap-agent","n":6,"title":"الوكيل حلقة: يخطط، ويستدعي أداة، ويقرأ النتيجة، ثم يقرر الخطوة التالية","kind":"content","session":1,"hash":"51ee20e9","md":"#### [day1#recap-agent] الوكيل حلقة: يخطط، ويستدعي أداة، ويقرأ النتيجة، ثم يقرر الخطوة التالية\n\n*من LDS-EXE-101*\n\n**خطة** ماذا أفعل أولًا ← **أداة** اقرأ، ابحث، احسب ← **نتيجة** تُضاف إلى السياق ← **تحقق** نجح، أم أعد المحاولة\n\nرأيتم في الإحاطة أين يخطئ الوكيل. اليوم نسأل سؤالًا آخر: كم تكلف كل دورة من هذه الحلقة، ومن يدفعها؟","notes":"شريحة تذكير فقط. من لم يحضر LDS-EXE-101 يكفيه أن يفهم أن الوكيل لا يجيب مرة واحدة: يدور حتى ينهي المهمة أو يتوقف.","minutes":null,"lo":["LO1"]},{"id":"four-token-types","n":7,"title":"الفاتورة تعدّ أربعة أنواع من الوحدات النصية، ولكل نوع سعر","kind":"content","session":1,"hash":"92b67102","md":"#### [day1#four-token-types] الفاتورة تعدّ أربعة أنواع من الوحدات النصية، ولكل نوع سعر\n\n*ما تحسبه الفاتورة*\n\n- **مدخلات.** كل ما يُرسل إلى النموذج في الاستدعاء: التعليمات والطلب والسياق.\n- **مدخلات مخزنة.** بادئة أُرسلت قبل قليل فيقرؤها المزوّد من ذاكرته بسعر أقل بكثير.\n- **مخرجات.** ما يكتبه النموذج. سعرها أضعاف سعر المدخلات.\n- **استدلال.** ما «يفكر» به النموذج قبل الرد. لا يظهر، ويُفوتَر مخرجات.\n\n> **من وثائق المزوّدين.** تقول OpenAI إن وحدات الاستدلال لا تظهر عبر الواجهة البرمجية، وتشغل سياق النموذج، وتُفوتَر مخرجات.\n\nالمصدر: OpenAI API, Reasoning models guide، قُرئ في نوفمبر 2026.","notes":"العدد في الرد: حقل usage في استجابة الواجهة البرمجية يذكر عدد وحدات الاستدلال (output_tokens_details.reasoning_tokens عند OpenAI). أدوات تتبع التنفيذ مثل Langfuse تسجل الأنواع كلها لكل استدعاء.\n\nالمصادر: OpenAI, Reasoning models؛ Langfuse, Token and cost tracking.","minutes":null,"lo":["LO1"]},{"id":"resent-every-call","n":8,"title":"في كل استدعاء يُرسل السياق كله من جديد، لا الجديد وحده","kind":"content","session":1,"hash":"97743a0b","md":"#### [day1#resent-every-call] في كل استدعاء يُرسل السياق كله من جديد، لا الجديد وحده\n\n*ما يُعاد إرساله*\n\n| المقطع | متى يدخل | هل يتكرر؟ |\n| --- | --- | --- |\n| تعليمات النظام وتعريفات الأدوات | من الاستدعاء الأول | في كل استدعاء |\n| طلب المستخدم | من الاستدعاء الأول | في كل استدعاء |\n| نتائج الأدوات والنصوص المسترجعة | بعد أول استدعاء لأداة | في كل ما بعده |\n| مخرجات الاستدعاءات السابقة | بعد كل استدعاء | تتراكم |\n\n> **حتى تعريف الأداة له ثمن.** تذكر Anthropic أن وجود أداة واحدة يضيف تعليمات نظام خاصة: 286 وحدة لنموذجي Opus 5.5 وSonnet 5.5.\n\nالمصدر: Anthropic, Pricing، قسم تسعير استخدام الأدوات، قُرئ في نوفمبر 2026.","notes":"النموذج لا يتذكر شيئًا بين استدعاء وآخر: الحلقة تبني الذاكرة بإعادة إرسال كل شيء. لهذا يكبر الاستدعاء العاشر عن الأول.\n\nالرقم 286 لحالتي tool_choice «auto» و«none»؛ وتضاف إليه تعريفات الأدوات نفسها. المصدر: Anthropic, Pricing.","minutes":null,"lo":["LO1"]},{"id":"history-grows","n":9,"title":"في مسار الإعلانات يكبر الاستدعاء من 2,992 وحدة إلى 18,367","kind":"content","session":1,"hash":"3c98b551","md":"#### [day1#history-grows] في مسار الإعلانات يكبر الاستدعاء من 2,992 وحدة إلى 18,367\n\n*مثال من إدارة الاتصال*\n\n| البند | القيمة |\n| --- | --- |\n| 1 · خطة | 2,992 |\n| 2 · طلب أداة | 3,267 |\n| 3 · طلب استرجاع | 6,212 |\n| 4 · مسودة عربية | 11,490 |\n| 5 · مسودة إنجليزية | 13,610 |\n| 6 · طلب تحقق | 15,244 |\n| 7 · مراجعة | 15,901 |\n| 8 · طلب تحقق | 18,058 |\n| 9 · تجميع | 18,367 |\n\nوحدات المدخلات في كل استدعاء من تشغيل واحد لمسار الإعلانات الثنائية اللغة. الأحمر استدعاءا إعادة المحاولة.","notes":"هذا مسار آخر في الهيئة نفسها: إدارة الاتصال تستخدم الحلقة نفسها لكتابة إعلانات عامة بالعربية والإنجليزية، بأسعار وأرقام مختلفة عن «واصِف». المثال من المولّد الاصطناعي للمقرر، لا من نموذج حقيقي.\n\nاسأل: أين القفزة الأكبر؟ بين 3 و4: النص المسترجع دخل السياق ولن يخرج.","minutes":null,"lo":["LO1"]},{"id":"billed-vs-asked","n":10,"title":"طلب من 392 وحدة صار فاتورة من 118,759 وحدة","kind":"content","session":1,"hash":"902b8303","md":"#### [day1#billed-vs-asked] طلب من 392 وحدة صار فاتورة من 118,759 وحدة\n\n*المفوتَر مقابل المسؤول*\n\n- **392** وحدة: طلب مالك الإعلان مرة واحدة\n- **118,759** وحدة مفوترة في الاستدعاءات التسعة\n- **303** ضعفًا: المفوتَر إلى طول الطلب\n\n> **والتقدير الساذج أقل بنحو 48 مرة.** سعر الطلب والجواب الأخير وحدهما 0.03 ريال، والتشغيل كلف 1.60 ريال بأسعار هذا المثال.","notes":"الأسعار في هذا المثال: 10 ريالات لكل مليون وحدة مدخلات، و40 للمخرجات. التقدير الساذج: 392 وحدة مدخلات و728 وحدة مخرجات للجواب الأخير. الحساب في ملف المقرر للأرقام.\n\nلا تكشف أرقام «واصِف»: المختبر سيجدها.","minutes":null,"lo":["LO1"]},{"id":"retries-multiply","n":11,"title":"كل محاولة فاشلة تُدفع كاملة، مع السياق كله الذي حملته","kind":"content","session":1,"hash":"b069831a","md":"#### [day1#retries-multiply] كل محاولة فاشلة تُدفع كاملة، مع السياق كله الذي حملته\n\n*إعادة المحاولة*\n\n- المسودة لم تجتز التحقق: يعود الوكيل ومعه رسالة الخطأ والسياق كله\n- الاستدعاءات المتأخرة هي الأكبر، فالإعادة تأتي في أغلى نقطة\n- حلقة لا تجتاز التحقق أبدًا تستمر حتى حدٍّ يوقفها، أو لا تتوقف\n\n**32%** من وحدات تشغيل الإعلانات ذهب إلى استدعاءي إعادة المحاولة\n\n> **اسأل الفريق.** ما الحد الأقصى لإعادة المحاولة؟ ومن يعرف حين يُبلَغ؟","notes":"الرقم: 38,231 وحدة من 118,759 في الاستدعاءين 7 و8 من مثال الإعلانات.\n\nاربطها بالجلسة الثانية: التشغيل الذي يبلغ الحد ينتهي بلا نتيجة، وتكلفته لا تختفي.","minutes":null,"lo":["LO1"]},{"id":"prices-fall-spend-rises","n":12,"title":"سعر الوحدة ينخفض بسرعة، والوكلاء يستهلكون وحدات أكثر بكثير","kind":"content","session":1,"hash":"720138d3","md":"#### [day1#prices-fall-spend-rises] سعر الوحدة ينخفض بسرعة، والوكلاء يستهلكون وحدات أكثر بكثير\n\n*مفارقة الإنفاق*\n\n- **السعر لأداء ثابت.** سعر بلوغ مستوى أداء معين انخفض بين 9 أضعاف و900 ضعف في السنة، بحسب المستوى، وفق Epoch AI (مارس 2025).\n- **الاستهلاك لكل مهمة.** تقول Anthropic إن الوكلاء يستهلكون عادة نحو 4 أضعاف وحدات المحادثة، والأنظمة متعددة الوكلاء نحو 15 ضعفًا.\n\n> **النتيجة في الموازنة.** سعر أقل لكل وحدة لا يعني فاتورة أقل: الحجم والحلقات قد يرفعان الإنفاق أسرع مما ينخفض السعر.\n\nالمصادر: Epoch AI, LLM inference prices have fallen rapidly but unequally across tasks (2025)؛ Anthropic Engineering, How we built our multi-agent research system (2025).","notes":"الرقمان من مصدرين مختلفين ولا يُطرح أحدهما من الآخر. الأول عن السعر لمستوى أداء ثابت، والثاني عن عدد الوحدات في نوع من الاستخدام. الرسالة: لا تبنِ موازنة على افتراض أن الأسعار ستنخفض.\n\nالمصادر: Epoch AI؛ Anthropic Engineering.","minutes":null,"lo":["LO1"]},{"id":"energy","n":13,"title":"كل وحدة نصية تُعالَج في مركز بيانات يستهلك كهرباء","kind":"content","session":1,"hash":"d35b5d9a","md":"#### [day1#energy] كل وحدة نصية تُعالَج في مركز بيانات يستهلك كهرباء\n\n*الطاقة*\n\n- **415** تيراواط ساعة: استهلاك مراكز البيانات في العالم عام 2024، نحو 1.5% من الكهرباء\n- **945** تيراواط ساعة تقريبًا: المتوقع عام 2030\n\n> **في تقريرك.** الحلقات وإعادة المحاولة والسياق الطويل تستهلك طاقة كما تستهلك مالًا. والتشغيل الفاشل يُبلَّغ عنه، لا يُحذف من الأرقام.\n\nالمصدر: IEA, Energy and AI (2025), Executive summary.","notes":"الرقمان لمراكز البيانات كلها، لا للذكاء الاصطناعي وحده. لا تحوّل الوحدات النصية إلى كيلوواط ساعة على الشريحة: لا يوجد معامل منشور موثوق لكل مزوّد.\n\nالمصدر: IEA, Energy and AI, Executive summary.","minutes":null,"lo":["LO1"]},{"id":"check-billed-tokens","n":14,"title":"من أين جاء الفرق؟","kind":"quiz","session":1,"hash":"4b00ed07","md":"#### [day1#check-billed-tokens] من أين جاء الفرق؟\n\n*نقطة تحقق*\n\n**سؤال:** في مسار الإعلانات، طلب مالك الإعلان 392 وحدة، والسجل يُظهر تسعة استدعاءات بمجموع 118,759 وحدة مفوترة. أي تفسير صحيح؟\n\n- أ. كل استدعاء يعيد إرسال التعليمات والطلب وما قرأه الوكيل وكتبه\n- ب. المزوّد يعدّ وحدات النص العربي أضعافًا مضاعفة مقارنة بالنص الإنجليزي\n- ج. وحدات الاستدلال المخفية هي معظم ما فُوتر في التشغيل كله\n- د. الطلب أُرسل مرة واحدة، والباقي رسوم ثابتة على كل استدعاء","notes":"الإجابة: أ. من اختار الاستدلال يحتاج العودة إلى شريحة الأنواع الأربعة: الاستدلال يُفوتَر مخرجات، لكنه ليس الأكبر هنا. أرقامه من مثال الإعلانات، لا من «واصِف».","minutes":null,"lo":["LO1"]},{"id":"lab-1-1","n":15,"title":"إسناد كل وحدة نصية في تشغيل واحد","kind":"lab","session":1,"hash":"1fb564fb","md":"#### [day1#lab-1-1] إسناد كل وحدة نصية في تشغيل واحد\n\nالمختبر 1.1 · 55 دقيقة\n\nسجل تشغيل واحد لـ«واصِف» من 11 استدعاءً: تسند كل مقطع إلى فئته، وتعلّم إعادة المحاولة، وتسعّر التشغيل.\n\n[D1_1_tokens.html](https://sdaiaacademy.github.io/lds-exe-202/labs/D1_1_tokens.html)\n\n- [ ] افتح سجل الوحدات النصية وقائمة الأسعار أ، واقرأ الاستدعاءات الأحد عشر (5 د)\n- [ ] صنّف كل مقطع في واحدة من الفئات السبع (15 د)\n- [ ] اجمع الوحدات لكل فئة واحسب حصتها ونسبة المفوتَر إلى مدخلات المستخدم (10 د)\n- [ ] اجمع وحدات استدعاءات إعادة المحاولة واحسب حصتها (5 د)\n- [ ] سعّر التشغيل بالقائمة أ، وقارنه بتقدير الطلب والجواب الأخير وحدهما (10 د)\n- [ ] اكتب ثلاث جمل للقيادة: لماذا يعطي السعر لكل وحدة صورة خاطئة (10 د)\n- [ ] ✱ إضافي: أرسل طلبًا حقيقيًّا ببيانات «عامة» إلى نموذج مستضاف يعرض الاستخدام، وقارن المفوتَر بطول رسالتك","notes":"بعد عشر دقائق مرّ على الطاولات وانظر إلى عمود category: الخطأ الأشيع خلط نتائج الأدوات بالاسترجاع. القاعدة: ما أعادته أداة الفحص أو التحقق «tool»، وما جاء من المعيار المنشور «retrieval».\n\nالذكاء الاصطناعي مرشد في المعادلات: يسأل المشارك عن معادلة، ويكتب الأرقام من جدوله. لا تعطِ القاعة أي مجموع قبل نهاية المختبر.","minutes":null,"lo":[]},{"id":"debrief-1-1","n":16,"title":"طلب من 204 وحدات فُوتر 1,786 ضعفًا، ونصف الفاتورة إعادة محاولة","kind":"content","session":1,"hash":"12e2f327","md":"#### [day1#debrief-1-1] طلب من 204 وحدات فُوتر 1,786 ضعفًا، ونصف الفاتورة إعادة محاولة\n\n*بعد المختبر 1.1*\n\n- **364,364** وحدة في التشغيل R028، منها 72.6% نتائج أدوات ونصوص مسترجعة\n- **47.4%** من الوحدات في استدعاءات إعادة المحاولة الأربعة\n- **6.47** ريال تكلفة الوحدات، والتقدير الساذج 0.06\n\n> **ومع 4.5 دقائق مراجعة يصبح التشغيل 19.97 ريالًا.** الوحدات أقل من ثلث تكلفته.","notes":"الأرقام من labs/solutions/D1_1_tokens.md. اطلب من مشاركين قراءة جملهم الثلاث للقيادة، واختر واحدة لا تذكر «السعر لكل وحدة» إلا لتقول إنه لا يكفي.\n\nالجسر إلى الجلسة الثانية: هذا تشغيل واحد ناجح. ماذا عن التشغيلات التي فشلت؟","minutes":null,"lo":["LO1"]},{"id":"s2","n":17,"title":"التكلفة لكل مهمة ناجحة توزيع لا رقم","kind":"section","session":2,"hash":"05bb6ce1","md":"#### [day1#s2] التكلفة لكل مهمة ناجحة توزيع لا رقم\n\n*الجلسة 2*\n\n- تعرّف المهمة الناجحة وتحمّلها تكلفة التشغيلات الفاشلة وإعادة المحاولة\n- تحسب الوسيط والمئين التسعين والمتوسط المحمَّل بمعادلات جدول البيانات\n- تختار الرقم الذي يُرفع إلى القيادة وتشرح ما يخفيه كل رقم آخر","notes":"","minutes":null,"lo":["LO2"]},{"id":"run-task-success","n":18,"title":"قبل أي رقم: ما التشغيل، وما المهمة، وما النجاح","kind":"content","session":2,"hash":"c9f8535a","md":"#### [day1#run-task-success] قبل أي رقم: ما التشغيل، وما المهمة، وما النجاح\n\n*التعريفات أولًا*\n\n| الكلمة | تعريفها في هذا المقرر |\n| --- | --- |\n| تشغيل | تنفيذ واحد للوكيل على طلب واحد: مقبول، أو مرفوض، أو فاشل بلا نتيجة |\n| مهمة | الطلب نفسه؛ التشغيل الفاشل يُعاد مرة، فللمهمة تشغيل أو اثنان |\n| نجاح | قبِل المراجع البشري الناتج، لا «انتهى التشغيل» |\n| تكلفة التشغيل | الوحدات النصية بسعرها، ودقائق المراجعة بأجرها |\n\n> **اكتب التعريفات في أعلى التقرير.** رقمان من فريقين بتعريفين للنجاح لا يُقارنان.","notes":"اسأل القاعة: في جهاتكم، من يقرر أن المهمة نجحت؟ النظام نفسه، أم الشخص الذي يستلم الناتج؟ هذا المقرر يعتمد الثاني.","minutes":null,"lo":["LO2"]},{"id":"failed-runs-paid","n":19,"title":"التشغيل الذي انتهى بلا نتيجة دُفعت وحداته كلها","kind":"content","session":2,"hash":"5a723d53","md":"#### [day1#failed-runs-paid] التشغيل الذي انتهى بلا نتيجة دُفعت وحداته كلها\n\n*التشغيل الفاشل*\n\n- **خطأ أداة.** توقف مبكرًا: وحداته قليلة، لكنه يُعاد من أوله.\n- **بلوغ حد إعادة المحاولة.** توقف متأخرًا: أغلى تشغيل في السجل، وبلا نتيجة.\n- **ناتج مرفوض.** دُفعت وحداته ووقت مراجعته، ولم تنجح المهمة.\n\n> **حذف هذه الأسطر من الملف يجمّل الرقم.** الإبلاغ الأمين يعدّها في التكلفة ويذكر عددها.","notes":"هذا من بنود الاستخدام المسؤول في المقرر: الإبلاغ الأمين عن التشغيلات الفاشلة. اسأل: من رأى تقريرًا عن أداة ذكاء اصطناعي يذكر عدد التشغيلات التي فشلت؟","minutes":null,"lo":["LO2"]},{"id":"review-is-cost","n":20,"title":"دقائق المراجعة غالبًا أكبر بند في تكلفة المهمة","kind":"content","session":2,"hash":"41067f6c","md":"#### [day1#review-is-cost] دقائق المراجعة غالبًا أكبر بند في تكلفة المهمة\n\n*المراجعة البشرية*\n\n**89%** من تكلفة 41 تشغيلًا لمسار الإعلانات كانت وقت مراجعة\n\n- 191.5 دقيقة مراجعة بأجر 2.5 ريال للدقيقة\n- في مقابل 61.14 ريالًا للوحدات النصية كلها\n- الأجر المحمَّل: الراتب والبدلات والتكاليف غير المباشرة، لا الراتب وحده\n\n> **من هنا يأتي الإغراء.** حذف المراجعة يبدو أكبر توفير، وهو تغيير في الجودة لا توفير.","notes":"أرقام مثال الإعلانات: المجموع 539.89 ريالًا، والمراجعة 478.75. أجر الدقيقة افتراض المقرر لهذا المثال.\n\nهذا هو خطر أن يؤدي ضغط التكلفة إلى إلغاء المراجعة البشرية: سنعود إليه في الروافع.","minutes":null,"lo":["LO2"]},{"id":"median-and-tail","n":21,"title":"المهمة المعتادة والمهمة السيئة رقمان مختلفان","kind":"content","session":2,"hash":"143fca2f","md":"#### [day1#median-and-tail] المهمة المعتادة والمهمة السيئة رقمان مختلفان\n\n*التوزيع*\n\n- **12.83** ريالًا: الوسيط، نصف المهام الناجحة أقل منه\n- **15.50** ريالًا: المئين التسعون، عُشر المهام أعلى منه\n- **29 / 36** مهمة ناجحة: 80.6%\n\n> **الطرف تصنعه الحلقات.** مهمة فشل تشغيلها الأول بعد مراجعات كثيرة ثم نجحت تحمل التشغيلين.","notes":"أرقام مثال الإعلانات. الوسيط بالدالة MEDIAN والمئين التسعون بالدالة PERCENTILE.INC، على تكلفة المهام الناجحة وحدها.","minutes":null,"lo":["LO2"]},{"id":"loaded-mean","n":22,"title":"المتوسط المحمَّل يضع كل ما دُفع على المهام التي نجحت","kind":"content","session":2,"hash":"7f682b15","md":"#### [day1#loaded-mean] المتوسط المحمَّل يضع كل ما دُفع على المهام التي نجحت\n\n*رقم الموازنة*\n\n| الرقم | ريال | ما يحسبه |\n| --- | --- | --- |\n| متوسط الناجحة وحدها | 12.46 | يسقط المهام المرفوضة والفاشلة |\n| متوسط التشغيل | 13.17 | 539.89 ÷ 41 تشغيلًا |\n| المتوسط المحمَّل | 18.62 | 539.89 ÷ 29 مهمة ناجحة |\n\n> **قد يقع المتوسط المحمَّل فوق المئين التسعين.** يحدث ذلك حين تكون المهام التي لم تنجح كثيرة ومكلفة.","notes":"اسأل: أي رقم تضعه في طلب الموازنة؟ المحمَّل: هو ما تدفعه الجهة مقابل كل نجاح. الوسيط والمئين التسعون يصفان التجربة، ونسبة النجاح تكتب بجانبها دائمًا.","minutes":null,"lo":["LO2"]},{"id":"formulas","n":23,"title":"ثلاث معادلات تكفي، بشرط أن تُكتب كما هي في التقرير","kind":"content","session":2,"hash":"51f50ba6","md":"#### [day1#formulas] ثلاث معادلات تكفي، بشرط أن تُكتب كما هي في التقرير\n\n*المعادلات*\n\n```\n# ملف: cost.ods\n=MEDIAN(D2:D37)\n=PERCENTILE.INC(D2:D37;0.9)\n=SUM(runs!T2:T42)/SUM(C2:C37)\n```\n\n- `D` تكلفة المهام الناجحة، فارغة لغيرها؛ `C` علامة النجاح؛ `T` تكلفة كل تشغيل\n- `PERCENTILE.INC` و`PERCENTILE.EXC` تعطيان رقمين مختلفين: اكتب أيهما استعملت","notes":"النطاقات هنا لمثال الإعلانات (36 مهمة و41 تشغيلًا). في Excel بإعدادات إنجليزية الفاصل بين المعاملات فاصلة، وفي LibreOffice قد يكون فاصلة منقوطة.\n\nالذكاء الاصطناعي مرشد في المعادلات: يجوز أن يسأل المشارك مساعدًا عن صيغة، ويبقى مسؤولًا عن أن الرقم من جدوله.","minutes":null,"lo":["LO2"]},{"id":"hidden-costs","n":24,"title":"الفاتورة من المزوّد جزء من التكلفة، لا كلها","kind":"content","session":2,"hash":"6933651b","md":"#### [day1#hidden-costs] الفاتورة من المزوّد جزء من التكلفة، لا كلها\n\n*التكاليف الخفية*\n\n- **المراجعة.** دقائق الموظف الذي يقبل الناتج أو يرفضه.\n- **التكامل.** ربط الوكيل بأنظمة الجهة، وصيانة الربط.\n- **التقييم.** مجموعات الاختبار، وإعادة التقييم عند كل تغيير.\n- **المراقبة.** أداة تتبع التنفيذ، ومن يقرأ التنبيهات.\n\n> **والمهام التي لم تنجح.** من ينجزها يدويًّا بعد رفضها؟ وقته تكلفة على المسار نفسه.","notes":"في المختبرات نحسب الوحدات والمراجعة فقط. في المشروع الختامي يظهر التقييم والمراقبة والتكامل بنودًا ثابتة في الموازنة.","minutes":null,"lo":["LO2"]},{"id":"build-vs-run","n":25,"title":"البناء يُدفع مرة، والتشغيل يُدفع كل شهر ويكبر مع الحجم","kind":"content","session":2,"hash":"3e2ea522","md":"#### [day1#build-vs-run] البناء يُدفع مرة، والتشغيل يُدفع كل شهر ويكبر مع الحجم\n\n*موازنتان*\n\n|  | موازنة البناء | موازنة التشغيل |\n| --- | --- | --- |\n| أمثلة | التكامل، وإعداد مجموعات الاختبار، والتدريب | الوحدات النصية، والمراجعة، والمراقبة، والتقييم الدوري |\n| يتغير مع | النطاق | الحجم ونسبة النجاح والحلقات |\n| يُقاس بـ | إنجاز المشروع | التكلفة لكل مهمة ناجحة |\n\n> **الخطأ الشائع.** موازنة تجربة صغيرة تُعتمد ثم يُكتشف أن التشغيل الكامل عشرة أضعافها.","notes":"دراسة الجدوى والتكلفة الإجمالية للملكية في LDS-ADV-201؛ هنا نكتفي بالفصل بين البندين.","minutes":null,"lo":["LO2"]},{"id":"check-budget-figure","n":26,"title":"أي رقم يدخل الموازنة؟","kind":"quiz","session":2,"hash":"db14adbb","md":"#### [day1#check-budget-figure] أي رقم يدخل الموازنة؟\n\n*نقطة تحقق*\n\n**سؤال:** مسار الإعلانات: 41 تشغيلًا على 36 مهمة، نجحت منها 29، والمجموع 539.89 ريالًا شاملًا المراجعة. يسأل بند الموازنة: كم نضع لكل إعلان ناجح؟\n\n- أ. 13.17 ريالًا: المجموع مقسومًا على التشغيلات الـ41\n- ب. 12.83 ريالًا: وسيط تكلفة المهام الناجحة\n- ج. 18.62 ريالًا: المجموع ÷ المهام الناجحة الـ29\n- د. 12.46 ريالًا: متوسط تكلفة المهام الناجحة وحدها","notes":"الإجابة: ج. الأرقام من مثال الإعلانات. من اختار الوسيط على حق في أنه يصف التجربة المعتادة، لكنه ليس رقم الموازنة.","minutes":null,"lo":["LO2"]},{"id":"lab-1-2","n":27,"title":"من 50 تشغيلًا إلى توزيع للتكلفة","kind":"lab","session":2,"hash":"9805dcc9","md":"#### [day1#lab-1-2] من 50 تشغيلًا إلى توزيع للتكلفة\n\nالمختبر 1.2 · 80 دقيقة\n\n50 تشغيلًا موسومًا على 45 طلب نشر: تكلفة كل تشغيل وكل مهمة بمعادلات، ثم الوسيط والمئين التسعون والمتوسط المحمَّل.\n\n[D1_2_distribution.html](https://sdaiaacademy.github.io/lds-exe-202/labs/D1_2_distribution.html)\n\n- [ ] افتح ملف التشغيلات والأسعار وأجر المراجعة، وتحقق من التصنيف (5 د)\n- [ ] احسب تكلفة الوحدات النصية لكل تشغيل بمعادلة (15 د)\n- [ ] أضف تكلفة المراجعة واحسب تكلفة كل تشغيل (10 د)\n- [ ] اجمع تكلفة كل مهمة وعلّم المهام الناجحة (15 د)\n- [ ] احسب الوسيط والمئين التسعين والمتوسط المحمَّل بمعادلاتها (15 د)\n- [ ] قارنها بمتوسط التشغيل ومتوسط الناجحة وحدها، واختر ما يُرفع إلى القيادة (10 د)\n- [ ] اجعل الحجم ونسبة النجاح خليتي مدخلات، وأعد الحساب عند 70% (10 د)\n- [ ] ✱ إضافي: اكتب سبب ارتفاع تكلفة كل مهمة من المهام الناجحة الخمس الأغلى","notes":"راقب الخطوة 4: من يعدّ المهمة المعادة مهمتين يخطئ في نسبة النجاح. والخطوة 2: من يحذف التشغيلات الفاشلة لأنها «بلا نتيجة».\n\nالخطوة 7 تمرين على ما سيطلبه المقيِّم في المراجعة: تغيير نسبة النجاح وإعادة الحساب في دقيقة.","minutes":null,"lo":[]},{"id":"debrief-1-2","n":28,"title":"الوسيط 19.23 ريالًا، لكن الهيئة تدفع 30.21 ريالًا لكل حزمة مقبولة","kind":"content","session":2,"hash":"bad6b430","md":"#### [day1#debrief-1-2] الوسيط 19.23 ريالًا، لكن الهيئة تدفع 30.21 ريالًا لكل حزمة مقبولة\n\n*بعد المختبر 1.2*\n\n| الرقم | ريال |\n| --- | --- |\n| الوسيط | 19.23 |\n| المئين التسعون | 28.18 |\n| المتوسط المحمَّل (35 ناجحة من 45، 77.8%) | 30.21 |\n| متوسط التشغيل | 21.15 |\n| متوسط الناجحة وحدها | 20.43 |\n\n> **المراجعة 71% من المجموع.** 250 دقيقة من أصل 1,057.50 ريالًا.","notes":"الأرقام من labs/solutions/D1_2_distribution.md. اسأل من أخرج رقمًا آخر، وابحث معه عن السبب: غالبًا تشغيلات فاشلة محذوفة أو PERCENTILE.EXC.\n\nعند نسبة نجاح 70%: 33.57 ريالًا لكل نجاح.","minutes":null,"lo":["LO2"]},{"id":"s3","n":29,"title":"ثلاث طرق للدفع عند ثلاثة أحجام","kind":"section","session":3,"hash":"6a8514c1","md":"#### [day1#s3] ثلاث طرق للدفع عند ثلاثة أحجام\n\n*الجلسة 3*\n\n- تحسب تكلفة السعة المخصصة ونسبة استغلالها عند حجم معين\n- تجد أحجام التعادل بين نظامين للتسعير\n- تقرأ تعريف «النتيجة» في عرض مورِّد قبل مقارنة سعره","notes":"","minutes":null,"lo":["LO3"]},{"id":"ways-to-pay","n":30,"title":"المورِّدون يبيعون الشيء نفسه بخمس طرق للعدّ","kind":"content","session":3,"hash":"90e4109a","md":"#### [day1#ways-to-pay] المورِّدون يبيعون الشيء نفسه بخمس طرق للعدّ\n\n*نظم التسعير*\n\n| الطريقة | تدفع مقابل | يرتفع الإنفاق حين |\n| --- | --- | --- |\n| الوحدات النصية | كل وحدة مدخلات ومخرجات | يكبر الحجم أو تطول الحلقات |\n| السعة المخصصة | وحدات سعة بالساعة | تشتري سعة أكثر مما تستعمل |\n| المستخدم | مقعد لكل موظف في الشهر | يزيد عدد المقاعد غير المستعملة |\n| الأرصدة | رصيد يُخصم بحسب الاستعمال | تتغير قيمة الرصيد لكل عملية |\n| النتيجة | كل «نتيجة» كما يعرّفها المورِّد | يختلف تعريفه عن تعريفك للنجاح |\n\n> **والالتزام يتقاطع معها كلها.** خصم مقابل حد أدنى أو مدة، يُدفع ولو انخفض الحجم.","notes":"الطرق الخمس لا تستبعد بعضها: عقد واحد قد يجمع مقاعد ورسم منصة وسعرًا لكل نتيجة.","minutes":null,"lo":["LO3"]},{"id":"annex-token-prices","n":31,"title":"أسعار الوحدات النصية المنشورة، بالدولار لكل مليون وحدة","kind":"content","session":3,"hash":"867d9252","md":"#### [day1#annex-token-prices] أسعار الوحدات النصية المنشورة، بالدولار لكل مليون وحدة\n\n*ملحق مؤرخ: نوفمبر 2026*\n\n| النموذج | مدخلات | مدخلات مخزنة | مخرجات |\n| --- | --- | --- | --- |\n| Claude Opus 5.5 | 4 | 0.20 | 20 |\n| Claude Sonnet 5.5 | 2 | 0.10 | 10 |\n| Claude Haiku 5.5 (طلب حتى 100,000 وحدة) | 0.10 | 0.01 | 0.50 |\n| gemini-3.8-flash حتى 31 ديسمبر 2026 | 0.75 | 0.075 | 3.75 |\n| gemini-3.8-flash من 1 يناير 2027 | 1.50 | 0.15 | 7.50 |\n\nلدى المزوّدين كليهما خصم 50% على المعالجة الحزمية غير الفورية. وسعر المخرجات عند Google يشمل وحدات الاستدلال.\n\nالمصادر: Anthropic, Pricing؛ Google AI Studio, Gemini API pricing (الطبقة العادية). قُرئتا في 18 نوفمبر 2026، وتتغيران.","notes":"هذا ملحق للقراءة، لا للحساب: أسعار المختبرات من قوائم المقرر الاصطناعية بالريال، حتى لا تتقادم المختبرات حين تتغير الأسعار. أعد قراءة الصفحتين قبل كل دفعة.\n\nلاحظ السطرين الأخيرين: سعر النموذج نفسه يتضاعف في تاريخ معلن مسبقًا. التخزين المؤقت عند Google له رسم تخزين بالساعة أيضًا.\n\nالمصادر: Anthropic, Pricing؛ Google AI Studio, Gemini API pricing.","minutes":null,"lo":["LO3"]},{"id":"annex-other-schemes","n":32,"title":"المقاعد والنتائج والسعة كما تنشرها صفحات المورِّدين","kind":"content","session":3,"hash":"60be8e2d","md":"#### [day1#annex-other-schemes] المقاعد والنتائج والسعة كما تنشرها صفحات المورِّدين\n\n*ملحق مؤرخ: نوفمبر 2026*\n\n- **مقاعد ونتائج: Intercom.** وكيلها Fin بـ0.99 دولار لكل «نتيجة»، فوق مقاعد شهرية بين 29 و132 دولارًا للمقعد بحسب الخطة (19 لخطة Essential بخصم العملاء الجدد).\n- **سعة: Microsoft Foundry.** النشر المخصص يُفوتَر بالساعة لكل وحدة سعة، أيًّا كان عدد الوحدات النصية المستهلكة، مع خصم مقابل حجز شهر أو سنة.\n\n> **اقرأ تعريف «النتيجة».** عند Intercom تُحتسب حين يؤكد العميل أن مشكلته حُلت، أو حين لا يطلب مساعدة أخرى بعد الرد، أو حين ينهي الوكيل إجراءً بما فيه التحويل إلى موظف.\n\nالمصادر: Intercom, Pricing؛ Microsoft Learn, Provisioned throughput for Foundry Models. قُرئتا في 18 نوفمبر 2026.","notes":"Intercom تعرض سعر خطة Essential مخفضًا للعملاء الجدد. اسأل القاعة: عميل لم يكتب مرة أخرى بعد الرد، هل حُلت مشكلته؟ ربما يئس. هذا هو الفرق بين «نتيجة» المورِّد ونجاح جهتك.\n\nالمصادر: Intercom, Pricing؛ Microsoft Learn, Provisioned throughput.","minutes":null,"lo":["LO3"]},{"id":"capacity-utilisation","n":33,"title":"السعة المخصصة تُدفع كل ساعة، فتكلفتها لكل طلب تتبع نسبة استغلالها","kind":"content","session":3,"hash":"41b655a7","md":"#### [day1#capacity-utilisation] السعة المخصصة تُدفع كل ساعة، فتكلفتها لكل طلب تتبع نسبة استغلالها\n\n*السعة والاستغلال*\n\n- الطلبات تأتي في ساعات العمل، والسعة تُدفع 730 ساعة في الشهر\n- الوحدات تُحسب لأعلى دقيقة، لا للمتوسط\n- الاستغلال = ما استُعمل ÷ ما تستطيع الوحدات معالجته في كل الساعات المدفوعة\n\n- **مثال الإعلانات.** وحدة سعة بـ9,000 ريال في الشهر تغطي 12,000 إعلان في ذروة ساعات العمل. عند 2,000 إعلان: تُستعمل 16.7% من هذه التغطية، والإعلان الواحد يحمل 4.50 ريالات من السعة. عند 8,000: 66.7%، و1.13 ريال.","notes":"الأرقام من مثال المقرر لإدارة الاتصال، لا من مورِّد حقيقي. الحساب: 9,000 ÷ 2,000 = 4.50؛ 9,000 ÷ 8,000 = 1.125.\n\nفرّق بين الرقمين: نسبة ما يُستعمل من تغطية الوحدة (16.7% هنا) شيء، والاستغلال على كل الساعات المدفوعة شيء أصغر منه بكثير، لأن التغطية نفسها محسوبة لساعات العمل وبهامش للذروة: الاستغلال = نسبة التغطية المستعملة × (دقائق العمل ÷ كل دقائق الشهر) ÷ عامل الذروة. المختبر 1.3 يطلب الثاني، ومعادلته في صفحة المختبر.\n\nالرسالة الثابتة في هذا المقرر: نسبة الاستغلال هي التي تحدد تكلفة السعة.","minutes":null,"lo":["LO3"]},{"id":"breakeven","n":34,"title":"التعادل هو الحجم الذي يتساوى عنده نظامان، ويتغير الخيار بعده","kind":"content","session":3,"hash":"f62c8657","md":"#### [day1#breakeven] التعادل هو الحجم الذي يتساوى عنده نظامان، ويتغير الخيار بعده\n\n*نقطة التعادل*\n\n| مثال الإعلانات | التكلفة الشهرية |\n| --- | --- |\n| الوحدات النصية | 1.70 ريال × الحجم |\n| النتيجة | 2,000 رسم منصة + 1.20 × 0.97 حزمة مسلَّمة لكل طلب × الحجم |\n| السعة | 9,000 لكل وحدة تغطي 12,000 طلب |\n\n1. **تحت 3,731** الوحدات النصية أرخص من النتيجة\n2. **من 3,731 إلى 6,014** النتيجة أرخص الثلاثة\n3. **من 6,014 إلى 12,000** السعة أرخص حتى تمتلئ الوحدة","notes":"الحساب: 2,000 ÷ (1.70 − 1.164) = 3,731؛ و(9,000 − 2,000) ÷ 1.164 = 6,014؛ والسعة تعادل الوحدات النصية عند 9,000 ÷ 1.70 = 5,294، لكن النتيجة أرخص منهما هناك. والسعة درجات: حين يتجاوز الحجم 12,000 تُشترى وحدة ثانية فتقفز التكلفة، ويُعاد حساب التعادل.","minutes":null,"lo":["LO3"]},{"id":"choice-by-volume","n":35,"title":"الخيار الصحيح عند حجم اليوم قد يكون الخطأ عند حجم السنة القادمة","kind":"content","session":3,"hash":"6a4c95c4","md":"#### [day1#choice-by-volume] الخيار الصحيح عند حجم اليوم قد يكون الخطأ عند حجم السنة القادمة\n\n*الخيار يتبع الحجم*\n\n| الحجم الشهري | الوحدات النصية | النتيجة | السعة | الخيار |\n| --- | --- | --- | --- | --- |\n| 2,000 | 3,400 | 4,328 | 9,000 | الوحدات النصية |\n| 8,000 | 13,600 | 11,312 | 9,000 | السعة |\n\n> **اكتب لكل خيار ما يحدث لو أخطأ التقدير.** السعة عند 8,000 تبقى 9,000 ريال لو بقي الحجم 2,000.","notes":"أرقام مثال الإعلانات. اسأل: من في جهته عقد اختير على حجم التجربة؟ ومن اختار سعة على حجم لم يأتِ؟","minutes":null,"lo":["LO3"]},{"id":"commitments","n":36,"title":"الخصم مقابل الالتزام يشتري سعرًا أقل، ويبيع المرونة","kind":"content","session":3,"hash":"c1d825af","md":"#### [day1#commitments] الخصم مقابل الالتزام يشتري سعرًا أقل، ويبيع المرونة\n\n*الالتزامات*\n\n- **ما تكسبه.** سعر أقل لكل وحدة أو ساعة، وفاتورة متوقعة يسهل وضعها في الموازنة.\n- **ما تخاطر به.** حد أدنى يُدفع لو انخفض الحجم، أو تغير النموذج، أو ظهر سعر أقل في السوق.\n\n> **سؤال قبل التوقيع.** ما أقل حجم شهري تتوقعه بثقة؟ التزم عنده، لا عند الحجم المأمول.","notes":"أسعار هذا السوق تتغير بسرعة، كما رأينا في سطري gemini-3.8-flash. الالتزام الطويل يثبّت سعرًا قد يصبح مرتفعًا. التفاوض على العقود موضوع مقرر آخر في المسار.","minutes":null,"lo":["LO3"]},{"id":"check-pricing","n":37,"title":"أي خيار أرخص عند 8,000؟","kind":"quiz","session":3,"hash":"602427fd","md":"#### [day1#check-pricing] أي خيار أرخص عند 8,000؟\n\n*نقطة تحقق*\n\n**سؤال:** مسار الإعلانات: 1.70 ريال للطلب بالوحدات النصية؛ أو 1.20 ريال لكل حزمة مسلَّمة (0.97 لكل طلب) ورسم منصة 2,000 ريال؛ أو وحدة سعة بـ9,000 ريال تغطي 12,000 طلب. أي خيار أرخص عند 8,000 طلب في الشهر؟\n\n- أ. النتيجة: 9,600 ريال في الشهر\n- ب. السعة: 9,000 ريال في الشهر\n- ج. الوحدات النصية: 13,600 ريال في الشهر\n- د. النتيجة: 11,312 ريالًا في الشهر","notes":"الإجابة: ب. الأرقام من مثال الإعلانات. من اختار «9,600» نسي رسم المنصة، وهذا هو الخطأ الأشيع في عروض التسعير بالنتيجة.","minutes":null,"lo":["LO3"]},{"id":"lab-1-3","n":38,"title":"تسعير مسار عمل واحد بثلاث طرق","kind":"lab","session":3,"hash":"9f42b2c9","md":"#### [day1#lab-1-3] تسعير مسار عمل واحد بثلاث طرق\n\nالمختبر 1.3 · 75 دقيقة\n\nملف استخدام وثلاث قوائم أسعار (أ بالوحدات، ب بالسعة، ج بالحزمة المسلَّمة) عند 1,500 و6,000 و24,000 طلب في الشهر.\n\n[D1_3_pricing.html](https://sdaiaacademy.github.io/lds-exe-202/labs/D1_3_pricing.html)\n\n- [ ] اقرأ القوائم الثلاث وملف الاستخدام والافتراضات (10 د)\n- [ ] احسب تكلفة الخيار أ الشهرية عند الأحجام الثلاثة (10 د)\n- [ ] احسب للخيار ب عدد الوحدات والتكلفة الشهرية ونسبة الاستغلال (15 د)\n- [ ] احسب للخيار ج الحزم المسلَّمة والتكلفة الشهرية (10 د)\n- [ ] احسب أحجام التعادل بين أ وج، وبين أ وب، وبين ج وب (15 د)\n- [ ] اختر خيارًا لكل حجم، مع التكلفة لكل حزمة مقبولة ومخاطرة واحدة (15 د)\n- [ ] ✱ إضافي: أعد الحساب بخصم 20% على ب مقابل التزام 12 شهرًا","notes":"قل قبل البدء: الأسعار في القوائم الثلاث من تصميم المقرر، والملحق الحقيقي على الشرائح للقراءة. لا يستبدل أحد الأسعار.\n\nراقب الخطوة 3: من يضرب في ساعات العمل بدل 730 ساعة، ومن ينسى عامل الذروة. وراقب الخطوة 4: عمود note في القائمة ج يقول إن الحزمة تُحتسب حين تُسلَّم.","minutes":null,"lo":[]},{"id":"debrief-1-3","n":39,"title":"الخيار يتغير مرتين بين 1,500 و24,000 طلب","kind":"content","session":3,"hash":"0e210de0","md":"#### [day1#debrief-1-3] الخيار يتغير مرتين بين 1,500 و24,000 طلب\n\n*بعد المختبر 1.3*\n\n| الحجم | أ | ب | ج | الخيار |\n| --- | --- | --- | --- | --- |\n| 1,500 | 8,640 | 36,500 | 11,089 | أ |\n| 6,000 | 34,560 | 36,500 | 32,358 | ج |\n| 24,000 | 138,240 | 109,500 | 117,430 | ب |\n\n> **ج يكلف 5.80 ريال لكل حزمة مقبولة، لا 4.75.** واستغلال ب عند 24,000 طلب 10.84% فقط.","notes":"الأرقام من labs/solutions/D1_3_pricing.md. التعادل: أ وج عند 3,869؛ أ وب بوحدة واحدة عند 6,337؛ ج وب بوحدة عند 6,876؛ وبثلاث وحدات 19,010 و22,322.\n\nلكل حزمة مقبولة شاملة المراجعة تتقارب الخيارات (بين 25.11 و26.97 عند الحجمين الأكبرين، مقابل 26.58 إلى 49.37 عند 1,500): المراجعة 15.90 ريالًا لكل طلب في كل خيار.","minutes":null,"lo":["LO3"]},{"id":"wrap-up","n":40,"title":"ثلاثة أشياء تأخذها من اليوم الأول","kind":"content","session":3,"hash":"15909dee","md":"#### [day1#wrap-up] ثلاثة أشياء تأخذها من اليوم الأول\n\n*الخلاصة*\n\n1. **المفوتَر ليس المسؤول:** الحلقة تعيد إرسال السياق، والتكلفة تُحسب للتشغيل كله\n2. **التكلفة لكل مهمة ناجحة توزيع:** الوسيط والمئين التسعون والمتوسط المحمَّل، ونسبة النجاح بجانبها\n3. **الخيار يتبع الحجم:** لكل نظام تسعير حجم تعادل، والسعة تتبع الاستغلال","notes":"اطلب من كل مشارك أن يكتب الرقم الذي سيرفعه لو سُئل غدًا عن «واصِف»، والتعريف الذي بُني عليه.","minutes":null,"lo":["LO1","LO2","LO3"]},{"id":"next","n":41,"title":"عشرون دقيقة على صفحة التدريب","kind":"content","session":3,"hash":"c6d1b275","md":"#### [day1#next] عشرون دقيقة على صفحة التدريب\n\n*قبل اليوم الثاني*\n\nحلّ أسئلة الحساب اليدوي في صفحة التدريب: غدًا حساب تكلفة مراقب على سجل مطبوع، دون ذكاء اصطناعي. واحتفظ بجداولك الثلاثة: يعود إليها مختبر الروافع والمشروع الختامي.","notes":"صفحة التدريب فيها أسئلة على أمثلة موازية، لا على ملفات المختبرات. الحساب المراقب في اليوم الثاني ساعة كاملة: خمس دقائق تعليمات، وخمسون للحساب، وخمس للتسليم.","minutes":null,"lo":[]}],"activities":[{"id":"check-billed-tokens-q1","slide":"check-billed-tokens","type":"single","prompt":"في مسار الإعلانات، طلب مالك الإعلان 392 وحدة، والسجل يُظهر تسعة استدعاءات بمجموع 118,759 وحدة مفوترة. أي تفسير صحيح؟","options":[{"key":"أ","text":"كل استدعاء يعيد إرسال التعليمات والطلب وما قرأه الوكيل وكتبه"},{"key":"ب","text":"المزوّد يعدّ وحدات النص العربي أضعافًا مضاعفة مقارنة بالنص الإنجليزي"},{"key":"ج","text":"وحدات الاستدلال المخفية هي معظم ما فُوتر في التشغيل كله"},{"key":"د","text":"الطلب أُرسل مرة واحدة، والباقي رسوم ثابتة على كل استدعاء"}],"correct":[0],"explanation":"النموذج لا يتذكر بين استدعاء وآخر، فتبني الحلقة ذاكرتها بإعادة إرسال السياق كله، ويتراكم فيه ما قرأه الوكيل وما كتبه.","misconceptions":["","الفرق بين اللغتين في عدّ الوحدات قائم، لكنه لا يقترب من 303 أضعاف","وحدات الاستدلال في هذا التشغيل 6,235 من 118,759، أي نحو 5%","الفاتورة بالوحدات النصية، ولا رسم ثابت على الاستدعاء في هذا التسعير"],"lo":["LO1"]},{"id":"check-budget-figure-q1","slide":"check-budget-figure","type":"single","prompt":"مسار الإعلانات: 41 تشغيلًا على 36 مهمة، نجحت منها 29، والمجموع 539.89 ريالًا شاملًا المراجعة. يسأل بند الموازنة: كم نضع لكل إعلان ناجح؟","options":[{"key":"أ","text":"13.17 ريالًا: المجموع مقسومًا على التشغيلات الـ41"},{"key":"ب","text":"12.83 ريالًا: وسيط تكلفة المهام الناجحة"},{"key":"ج","text":"18.62 ريالًا: المجموع ÷ المهام الناجحة الـ29"},{"key":"د","text":"12.46 ريالًا: متوسط تكلفة المهام الناجحة وحدها"}],"correct":[2],"explanation":"الموازنة تدفع كل التشغيلات، ناجحها وفاشلها، والنتيجة التي تشتريها هي المهام الناجحة.","misconceptions":["يقسم على التشغيلات، فيعامل التشغيل الفاشل والمرفوض كأنه إعلان ناجح","الوسيط يصف المهمة المعتادة، ولا يحمل تكلفة المهام التي لم تنجح","","يسقط المهام المرفوضة والفاشلة، وهي مدفوعة كاملة"],"lo":["LO2"]},{"id":"check-pricing-q1","slide":"check-pricing","type":"single","prompt":"مسار الإعلانات: 1.70 ريال للطلب بالوحدات النصية؛ أو 1.20 ريال لكل حزمة مسلَّمة (0.97 لكل طلب) ورسم منصة 2,000 ريال؛ أو وحدة سعة بـ9,000 ريال تغطي 12,000 طلب. أي خيار أرخص عند 8,000 طلب في الشهر؟","options":[{"key":"أ","text":"النتيجة: 9,600 ريال في الشهر"},{"key":"ب","text":"السعة: 9,000 ريال في الشهر"},{"key":"ج","text":"الوحدات النصية: 13,600 ريال في الشهر"},{"key":"د","text":"النتيجة: 11,312 ريالًا في الشهر"}],"correct":[1],"explanation":"وحدة واحدة تكفي 8,000 طلب، فتبقى السعة 9,000، والنتيجة 2,000 + 1.164 × 8,000 = 11,312.","misconceptions":["يضرب السعر في الحجم وينسى رسم المنصة والحزم المسلَّمة؛ المجموع الصحيح 11,312","","الوحدات النصية 13,600 عند هذا الحجم، أعلى من الخيارين الآخرين","هذا رقم النتيجة الصحيح، لكنه أعلى من السعة بـ2,312 ريالًا"],"lo":["LO3"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day1.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+﻿item,value,unit,note
+price_per_pack,4.75,SAR per delivered pack,"the vendor runs its own copy of the workflow; a pack counts when it is delivered to the steward, accepted or not"
+platform_fee,4000,SAR per month,whatever the volume
+failed_runs,0,SAR,runs that deliver no pack are not billed
+tokens,0,SAR,included in the pack price

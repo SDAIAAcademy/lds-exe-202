@@ -1,0 +1,5 @@
+﻿item,value_sar,note
+ai_budget_line_2026,420000,"the dedicated AI line in the authority budget, approved for the calendar year"
+spent_jan_apr,61200,pilots before Wasif went live
+evaluation_and_monitoring_2026,36000,"fixed: test sets, trace viewer licence, monthly checks"
+integration_build_2026,95000,"one-off build of the request system connector, paid in May"

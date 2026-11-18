@@ -1,0 +1,5 @@
+﻿item,value,unit,note
+steward_rate,3,SAR per minute,"loaded cost of a data steward, the course assumption"
+working_minutes,10560,minutes per month,22 working days of 8 hours: the agent runs when requests arrive
+peak_factor,2,ratio,the busiest minute carries twice the average working-hours load
+volumes,1500 / 6000 / 24000,requests per month,"today, next year, full rollout across all departments"
